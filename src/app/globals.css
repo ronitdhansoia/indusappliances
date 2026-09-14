@@ -1,26 +1,665 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Bright light ground */
+  --color-ink: #0e1620;
+  --color-body: #45515d;
+  --color-muted: #8a96a2;
+  --color-faint: #b9c2cb;
+  --color-line: #e8ebee;
+  --color-soft: #f6f7f8;
+  --color-brand: #e32227;
+  --color-brand-deep: #c4191e;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Dark closing block */
+  --color-night: #0b111a;
+  --color-navy: #101b2c;
+  --color-line-dark: #223349;
+  --color-steel: #8fa3b4;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-display: var(--font-mona), var(--font-geist), sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee-rev: marquee-rev 50s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes marquee-rev {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: var(--color-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+/* Full-bleed shell: no width cap, slim gutters, content meets the edges */
+.shell {
+  width: 100%;
+  padding-inline: clamp(1rem, 2vw, 2rem);
+}
+
+/* Typography alignment: headings balance, paragraphs avoid orphans */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+p {
+  text-wrap: pretty;
+}
+
+/* Display voice: Mona Sans, drawn tight and confident */
+.display {
+  font-family: var(--font-display);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.display-sub {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Small functional label (stat captions, chips, footer headings): quiet,
+   sentence case, no tracking. The caps eyebrow register is retired. */
+.anno {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.grid-ink {
+  background-image: linear-gradient(
+      to right,
+      rgba(143, 163, 180, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(143, 163, 180, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Buttons: pill geometry, weighted press states */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.875rem 1.75rem;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn-primary {
+  background: var(--color-brand);
+  color: #ffffff;
+  box-shadow: 0 8px 24px -8px rgba(227, 34, 39, 0.5);
+}
+.btn-primary:hover {
+  background: var(--color-brand-deep);
+  box-shadow: 0 12px 32px -8px rgba(227, 34, 39, 0.55);
+}
+.btn-ghost {
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+.btn-ghost:hover {
+  border-color: var(--color-faint);
+  background: var(--color-soft);
+}
+.btn-ghost-dark {
+  border: 1px solid var(--color-line-dark);
+  color: #ffffff;
+  background: transparent;
+}
+.btn-ghost-dark:hover {
+  border-color: var(--color-steel);
+  background: rgba(143, 163, 180, 0.08);
+}
+
+/* Scroll reveal: content rises gently into place */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Outlined display type for the certification ticker */
+.outline-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 1.5px rgba(14, 22, 32, 0.3);
+  color: transparent;
+  transition: color 0.4s ease;
+}
+
+/* Hero stage: exactly the viewport under the header on every screen.
+   --header-h is measured live by the Navbar; 122px is the static fallback
+   (32px strip + 88px bar + two 1px hairlines). */
+.hero-stage {
+  min-height: calc(100vh - var(--header-h, 122px));
+  min-height: calc(100svh - var(--header-h, 122px));
+}
+
+/* Short laptop windows: pull the copy up and trim the headline so the
+   facts strip stays inside the first screen */
+@media (max-height: 760px) and (min-width: 640px) {
+  .hero-stage .hero-copy {
+    padding-top: 4.5rem;
+    padding-bottom: 2rem;
+  }
+  .hero-stage h1 {
+    font-size: clamp(2.5rem, 5.2vw, 4.5rem);
+  }
+  .hero-stage .hero-facts {
+    padding-block: 1.25rem;
+  }
+}
+
+/* One page-load moment: headline, then copy, then the facts strip */
+.hero-enter {
+  animation: hero-enter 1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Quiet text link beside the primary button on the dark hero */
+.hero-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 6px;
+  transition: text-decoration-color 0.25s ease;
+}
+.hero-link:hover {
+  text-decoration-color: #ffffff;
+}
+
+/* Visible keyboard focus for buttons and hero links */
+.btn:focus-visible,
+.hero-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+}
+.hero-stage .btn:focus-visible,
+.hero-stage .hero-link:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Nav link underline that draws itself on hover */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link[data-active="true"]::after {
+  transform: scaleX(1);
+}
+
+/* Masked edge fade for tickers */
+.edge-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+/* Milestone time axis: draws once when it enters view */
+.tl-ticks {
+  fill: none;
+  stroke: var(--color-faint);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.2s;
+}
+.tl-axis {
+  stroke: var(--color-faint);
+  stroke-width: 1.25;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.tl-axis-v {
+  transform-origin: center top;
+  transform: scaleY(0);
+}
+.tl-leader {
+  fill: none;
+  stroke: var(--color-faint);
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.5s ease;
+  transition-delay: calc(0.45s + var(--i, 0) * 90ms);
+}
+.tl-dot {
+  fill: var(--color-brand);
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(0.4s + var(--i, 0) * 90ms);
+}
+.tl-item {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition-delay: calc(0.6s + var(--i, 0) * 90ms);
+}
+.tl[data-in="true"] .tl-ticks {
+  opacity: 1;
+}
+.tl[data-in="true"] .tl-axis {
+  transform: none;
+}
+.tl[data-in="true"] .tl-leader {
+  stroke-dashoffset: 0;
+}
+.tl[data-in="true"] .tl-dot {
+  transform: scale(1);
+}
+.tl[data-in="true"] .tl-item {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tl-ticks,
+  .tl-axis,
+  .tl-leader,
+  .tl-dot,
+  .tl-item {
+    transition: none;
+  }
+  .tl-ticks {
+    opacity: 1;
+  }
+  .tl-axis {
+    transform: none;
+  }
+  .tl-leader {
+    stroke-dashoffset: 0;
+  }
+  .tl-dot {
+    transform: scale(1);
+  }
+  .tl-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-enter {
+    animation: none;
+  }
+}
+
+/* About page: a left rail column is reserved on wide screens and the
+   page index floats inside it */
+.about-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.about-cols > * {
+  min-width: 0;
+}
+@media (min-width: 1280px) {
+  .about-cols {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    column-gap: 3rem;
+  }
+  .about-cols > * {
+    grid-column: 2;
+  }
+}
+
+.about-index {
+  position: fixed;
+  left: clamp(1rem, 2vw, 2rem);
+  top: 50%;
+  z-index: 30;
+  transform: translateY(-50%);
+  color: #ffffff;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+.about-index[data-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+.about-index a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+.about-index a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.about-index a:hover,
+.about-index a[aria-current="true"] {
+  opacity: 1;
+}
+.about-index a[aria-current="true"]::before {
+  width: 1.25rem;
+}
+.about-index a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  opacity: 1;
+}
+
+/* Sticky under the measured header, and anchor offsets that clear it */
+.stick-under-header {
+  align-self: start;
+}
+@media (min-width: 1024px) {
+  .stick-under-header {
+    position: sticky;
+    top: calc(var(--header-h, 122px) + 1.5rem);
+  }
+}
+.under-header-offset {
+  scroll-margin-top: calc(var(--header-h, 122px) + 1rem);
+}
+
+/* Export map panel: dotted land, a red origin pulse, and routes that draw
+   out and fade in a slow loop. Widths are in viewBox units. */
+.export-map-dots {
+  fill: none;
+  stroke: rgba(143, 163, 180, 0.5);
+  stroke-width: 0.62;
+  stroke-linecap: round;
+}
+.export-map-india {
+  fill: none;
+  stroke: #ffffff;
+  stroke-opacity: 0.95;
+  stroke-width: 0.7;
+  stroke-linecap: round;
+}
+.export-map-arc {
+  fill: none;
+  stroke: #ffffff;
+  stroke-opacity: 0.75;
+  stroke-width: 0.32;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: export-arc 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: var(--delay, 0s);
+}
+.export-map-arc-glow {
+  stroke-width: 1.1;
+  stroke-opacity: 0.35;
+}
+.export-map-dest {
+  fill: #ffffff;
+  opacity: 0;
+  animation: export-dest 7s ease infinite;
+  animation-delay: var(--delay, 0s);
+}
+.export-map-dest-ring {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 0.25;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: export-ring 7s ease-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+.export-map-origin {
+  fill: var(--color-brand);
+}
+.export-map-origin-ring {
+  fill: none;
+  stroke: var(--color-brand);
+  stroke-width: 0.3;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: export-origin 2.6s ease-out infinite;
+}
+.export-map-origin-ring-2 {
+  animation-delay: 1.3s;
+}
+@keyframes export-arc {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  40% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  66% {
+    opacity: 1;
+  }
+  80%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+@keyframes export-dest {
+  0%,
+  36% {
+    opacity: 0;
+  }
+  42%,
+  70% {
+    opacity: 1;
+  }
+  82%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes export-ring {
+  0%,
+  38% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  42% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  64%,
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+@keyframes export-origin {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4.5);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .export-map-arc {
+    animation: none;
+    stroke-dashoffset: 0;
+    stroke-opacity: 0.4;
+  }
+  .export-map-dest {
+    animation: none;
+    opacity: 1;
+  }
+  .export-map-dest-ring,
+  .export-map-origin-ring {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Scrollbars: a slim rounded thumb on a transparent track, visible on both
+   the white and the dark sections, a touch wider under the pointer.
+   Chromium and Safari take the pseudo-elements; Firefox takes the
+   standard properties (Chromium ignores the pseudo-elements when those
+   are set, hence the @supports split). */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(138, 150, 162, 0.55);
+  border: 4px solid transparent;
+  border-radius: 999px;
+  background-clip: content-box;
+  min-height: 48px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(69, 81, 93, 0.85);
+  border-width: 3px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(138, 150, 162, 0.6) transparent;
+  }
+}
+
+/* Line strip: snaps photo by photo, uses the site scrollbar style */
+.line-strip {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: clamp(1rem, 2vw, 2rem);
+}
+
+/* Careers: plus/minus disclosure mark drawn with two hairlines */
+.role-plus::before,
+.role-plus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 1.5px;
+  background: var(--color-ink);
+  transform: translate(-50%, -50%);
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.role-plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+.role-plus.is-open::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+.role-row:hover .role-plus {
+  border-color: var(--color-ink);
+}
+.role-row:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
 }
