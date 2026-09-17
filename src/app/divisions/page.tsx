@@ -10,7 +10,7 @@ import { backwardIntegration } from "@/data/divisions";
 
 export const metadata: Metadata = {
   title: "Business divisions | Indus Appliances",
-  description: "Eight product lines under one roof in Bahadurgarh: water heaters, kitchen hoods, washing machines, air fryers, fans, motors, air coolers and the tool room that supports them.",
+  description: "Nine product lines under one roof in Bahadurgarh: water heaters, kitchen hoods, washing machines, air fryers, fans, motors, air coolers, heating elements and the tool room that supports them.",
 };
 
 export default function DivisionsIndex() {
@@ -22,7 +22,7 @@ export default function DivisionsIndex() {
           <Image src="/plant/aerial.jpg" alt="Aerial view of the Indus Appliances plant beside the Delhi Rohtak Road in Bahadurgarh" fill priority sizes="100vw" className="-z-20 object-cover" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/55 to-night/10" aria-hidden />
           <div className="shell pb-10 pt-40 sm:pb-14">
-            <h1 className="max-w-[16ch] font-display text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[0.96] tracking-[-0.04em]">Eight lines. One roof.</h1>
+            <h1 className="max-w-[16ch] font-display text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[0.96] tracking-[-0.04em]">Nine lines. One roof.</h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
               Everything Indus makes is built on one site on the Delhi Rohtak Road. The sheet metal, the motors and the moulds for every line come from the same floor.
             </p>

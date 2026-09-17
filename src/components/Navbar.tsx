@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { nav, contact } from "@/data/site";
+import { nav, contact, divisions, menuProducts } from "@/data/site";
 
 function SocialIcons({ className = "" }: { className?: string }) {
   const icons = [
@@ -43,11 +43,19 @@ function SocialIcons({ className = "" }: { className?: string }) {
   );
 }
 
+/* Full-width divisions sheet, after Roman Maritime's products menu: a
+   division column with capacities, a two-column list of products with
+   their division as a muted suffix, and a photo tile that crossfades to
+   the division under the cursor. Opens on hover or focus with a short
+   close delay so the cursor can travel down into it. */
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mobileDivisions, setMobileDivisions] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [preview, setPreview] = useState(0);
   const headerRef = useRef<HTMLElement>(null);
   const openRef = useRef(false);
+  const closeTimer = useRef<number | null>(null);
 
   useEffect(() => {
     openRef.current = open;
@@ -71,6 +79,32 @@ export default function Navbar() {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!menu) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenu(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menu]);
+
+  const openMenu = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+    setMenu(true);
+  };
+  const closeMenuSoon = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setMenu(false), 140);
+  };
+  const closeMenuNow = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+    setMenu(false);
+  };
+
+  const current = divisions[preview];
 
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
@@ -99,7 +133,7 @@ export default function Navbar() {
       </div>
 
       {/* Main bar: bright, frosted, hairline-separated */}
-      <div className="border-b border-line bg-white/85 backdrop-blur-xl">
+      <div className="relative border-b border-line bg-white/85 backdrop-blur-xl">
         <nav className="shell flex h-[88px] items-center justify-between gap-6">
           <Link href="/" className="flex shrink-0 items-center">
             <Image
@@ -115,36 +149,31 @@ export default function Navbar() {
           <ul className="hidden items-center gap-8 lg:flex">
             {nav.map((item) =>
               item.children ? (
-                <li key={item.label} className="group relative">
+                <li
+                  key={item.label}
+                  onMouseEnter={openMenu}
+                  onMouseLeave={closeMenuSoon}
+                  onFocus={openMenu}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node)) closeMenuSoon();
+                  }}
+                >
                   <Link
                     href={item.href}
+                    aria-expanded={menu}
+                    aria-controls="divisions-menu"
+                    onClick={closeMenuNow}
                     className="nav-link flex items-center gap-1.5 py-2 text-[15px] font-medium text-ink/80 transition-colors duration-200 hover:text-ink"
+                    data-active={menu ? "true" : undefined}
                   >
                     {item.label}
                     <svg
                       viewBox="0 0 10 6"
-                      className="h-1.5 w-2.5 fill-none stroke-current stroke-[1.5] transition-transform duration-300 group-hover:rotate-180"
+                      className={`h-1.5 w-2.5 fill-none stroke-current stroke-[1.5] transition-transform duration-300 ${menu ? "rotate-180" : ""}`}
                     >
                       <path d="M1 1l4 4 4-4" />
                     </svg>
                   </Link>
-                  <div className="invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-2 pt-3 opacity-0 transition-all duration-300 ease-out group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-                    <ul className="grid w-[30rem] grid-cols-2 gap-1 rounded-2xl border border-line bg-white p-2 shadow-xl shadow-ink/8">
-                      {item.children.map((child, i) => (
-                        <li key={child.label}>
-                          <Link
-                            href={child.href}
-                            className="flex items-baseline gap-3 rounded-xl px-3.5 py-2.5 text-[13.5px] font-medium text-body transition-colors duration-200 hover:bg-soft hover:text-ink"
-                          >
-                            <span className="anno text-faint">
-                              {String(i + 1).padStart(2, "0")}
-                            </span>
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
                 </li>
               ) : (
                 <li key={item.label}>
@@ -182,6 +211,110 @@ export default function Navbar() {
             </button>
           </div>
         </nav>
+
+        {/* Divisions sheet */}
+        <div
+          id="divisions-menu"
+          className="mega hidden lg:block"
+          data-open={menu ? "true" : "false"}
+          onMouseEnter={openMenu}
+          onMouseLeave={closeMenuSoon}
+          onFocus={openMenu}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) closeMenuSoon();
+          }}
+          aria-hidden={!menu}
+        >
+          <div className="shell grid grid-cols-[minmax(0,3fr)_minmax(0,4fr)_minmax(0,5fr)] gap-12 py-10">
+            <div>
+              <p className="mega-item text-xs text-muted" style={{ "--i": 0 } as React.CSSProperties}>
+                Divisions
+              </p>
+              <ul className="mt-4">
+                {divisions.map((d, i) => (
+                  <li key={d.id} className="mega-item" style={{ "--i": i + 1 } as React.CSSProperties}>
+                    <Link
+                      href={d.href}
+                      onClick={closeMenuNow}
+                      onMouseEnter={() => setPreview(i)}
+                      onFocus={() => setPreview(i)}
+                      tabIndex={menu ? 0 : -1}
+                      className={`flex items-baseline justify-between gap-4 py-2 text-[15px] font-medium transition-colors duration-200 ${preview === i ? "text-ink" : "text-ink/70 hover:text-ink"}`}
+                    >
+                      <span>{d.name}</span>
+                      <span className="text-xs text-muted tabular-nums">{d.capacity}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="mega-item text-xs text-muted" style={{ "--i": 1 } as React.CSSProperties}>
+                From the range
+              </p>
+              <ul className="mt-4 grid grid-cols-2 gap-x-8">
+                {menuProducts.map((m, i) => (
+                  <li key={m.name} className="mega-item" style={{ "--i": i + 2 } as React.CSSProperties}>
+                    <Link
+                      href={m.href}
+                      onClick={closeMenuNow}
+                      tabIndex={menu ? 0 : -1}
+                      className="block py-1.5 text-[15px] leading-snug text-ink/80 transition-colors duration-200 hover:text-ink"
+                    >
+                      {m.name}
+                      <span className="block text-xs text-muted">{m.division}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mega-item grid grid-cols-2 gap-5" style={{ "--i": 3 } as React.CSSProperties}>
+              <Link
+                href={current.href}
+                onClick={closeMenuNow}
+                tabIndex={menu ? 0 : -1}
+                className="group relative block aspect-[4/3] overflow-hidden rounded-2xl bg-soft"
+              >
+                {divisions.map((d, i) => (
+                  <Image
+                    key={d.id}
+                    src={d.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 22vw, 0px"
+                    className={`object-cover transition-all duration-700 ease-out ${preview === i ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
+                  />
+                ))}
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/70 to-transparent" aria-hidden />
+                <span className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="block font-display text-lg font-semibold tracking-[-0.02em]">{current.name}</span>
+                  <span className="block text-xs text-white/80">{current.capacity} {current.capacityNote}</span>
+                </span>
+              </Link>
+              <Link
+                href="/divisions"
+                onClick={closeMenuNow}
+                tabIndex={menu ? 0 : -1}
+                className="group relative block aspect-[4/3] overflow-hidden rounded-2xl bg-night"
+              >
+                <Image
+                  src="/plant/aerial.jpg"
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 22vw, 0px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+                <span className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-night/80 to-transparent" aria-hidden />
+                <span className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="block font-display text-lg font-semibold tracking-[-0.02em]">All divisions</span>
+                  <span className="block text-xs text-white/80">Nine lines in Bahadurgarh</span>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Mobile menu: smooth height transition */}
         <div

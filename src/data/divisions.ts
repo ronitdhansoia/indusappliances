@@ -316,6 +316,31 @@ export const divisionPages: DivisionPage[] = [
     },
   },
   {
+    slug: "heating-elements",
+    name: "Heating elements",
+    headline: "The element inside every Indus water heater.",
+    lead: "Indus makes its own copper heating elements in Bahadurgarh, the part that turns two million water heaters a year into hot water. Made on site, they are matched to each tank, rated for Indian mains, and tested with the heater they go into.",
+    hero: { kind: "image", src: "/plant/test-panel.jpg", alt: "Electrical test panel on the water heater line at the Bahadurgarh plant" },
+    facts: [
+      "Copper heating elements made in-house since the first water heater line",
+      "2 kW elements for storage heaters, 3 kW for instant",
+      "Rated 220 to 240 V, 50 to 60 Hz, for Indian mains",
+      "Every element tested in the finished heater before dispatch",
+    ],
+    lineTitle: "Made, fitted, tested",
+    line: [
+      { src: "/plant/fabrication-line.jpg", caption: "Fabrication line 1" },
+      { src: "/plant/test-panel.jpg", caption: "High-voltage and earth test" },
+      { src: "/plant/shop-floor.jpg", caption: "Dispatch aisle" },
+    ],
+    rangeTitle: "Two ratings",
+    rangeNote: "Both ratings run 220 to 240 V and 50 to 60 Hz. Element geometry follows the tank it is fitted to.",
+    range: [
+      { name: "2 kW storage element", sizes: "Storage heaters, 6 to 100 litres", specs: ["Copper sheath", "0.8 bar rated tank pressure", "Square, vertical, horizontal and Sumo series"] },
+      { name: "3 kW instant element", sizes: "Instant heaters, 3 to 5.9 litres", specs: ["Copper sheath", "0.65 bar rated tank pressure", "Ambient to 75 °C"] },
+    ],
+  },
+  {
     slug: "tools-and-moulds",
     name: "Tools and moulds",
     headline: "The tool room that makes the rest of the plant possible.",

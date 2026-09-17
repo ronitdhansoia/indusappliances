@@ -27,6 +27,7 @@ export const nav = [
       { label: "Fans", href: "/divisions/fans" },
       { label: "Motors", href: "/divisions/motors" },
       { label: "Air Coolers", href: "/divisions/air-coolers" },
+      { label: "Heating Elements", href: "/divisions/heating-elements" },
       { label: "Tools & Moulds", href: "/divisions/tools-and-moulds" },
     ],
   },
@@ -118,6 +119,16 @@ export const divisions: Division[] = [
   },
   {
     id: "08",
+    name: "Heating Elements",
+    capacity: "2 & 3 kW",
+    capacityNote: "copper elements, in-house",
+    blurb:
+      "The copper heating elements inside every Indus water heater, made on our own line: 2 kW for storage models and 3 kW for instant, rated 220 to 240 V.",
+    image: "/plant/test-panel.jpg",
+    href: "/divisions/heating-elements",
+  },
+  {
+    id: "09",
     name: "Tools & Moulds",
     capacity: "CAD / CAM",
     capacityNote: "in-house tooling",
@@ -126,6 +137,22 @@ export const divisions: Division[] = [
     image: "/products/tools.png",
     href: "/divisions/tools-and-moulds",
   },
+];
+
+/* Products surfaced in the Business Divisions menu. Each links to its
+   division's range section. */
+export const menuProducts = [
+  { name: "Instant water heater", division: "Water heaters", href: "/divisions/water-heaters#range" },
+  { name: "Square series storage heater", division: "Water heaters", href: "/divisions/water-heaters#range" },
+  { name: "Curve plane auto-clean hood", division: "Kitchen hoods", href: "/divisions/kitchen-hoods#range" },
+  { name: "Cube BLDC hood", division: "Kitchen hoods", href: "/divisions/kitchen-hoods#range" },
+  { name: "8 kg top-load washer", division: "Washing machines", href: "/divisions/washing-machines#range" },
+  { name: "Digital touch air fryer", division: "Air fryers", href: "/divisions/air-fryers#range" },
+  { name: "Glacier Wave 45 L", division: "Air coolers", href: "/divisions/air-coolers#range" },
+  { name: "Supercool X 150 L", division: "Air coolers", href: "/divisions/air-coolers#range" },
+  { name: "130 W BLDC hood motor", division: "Motors", href: "/divisions/motors#range" },
+  { name: "3 kW copper heating element", division: "Heating elements", href: "/divisions/heating-elements#range" },
+  { name: "Pedestal fan", division: "Fans", href: "/divisions/fans#range" },
 ];
 
 export const heroStats = [
@@ -137,7 +164,7 @@ export const heroStats = [
 
 export const heroFacts = [
   "50 million units built since 2004",
-  "8 product lines under one roof",
+  "9 product lines under one roof",
   "30+ assembly lines across 5 plants",
   "50 brands, from Havells to A.O. Smith",
 ];
