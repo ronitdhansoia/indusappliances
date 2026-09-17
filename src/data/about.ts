@@ -116,7 +116,7 @@ export const pillars: Pillar[] = [
 
 export const founder = {
   name: "Dinesh Garg",
-  role: "Founder and Director",
+  role: "Founder and Managing Director",
   image: "/about/dinesh-garg.jpg",
   pull: "We don't just build machines. We build long-term value, trust and relationships that last.",
   letter: [
@@ -136,7 +136,7 @@ export type Director = {
 export const board: Director[] = [
   {
     name: "Dinesh Garg",
-    role: "Founder and Director",
+    role: "Founder and Managing Director",
     image: "/about/dinesh-garg.jpg",
     initials: "DG",
   },
