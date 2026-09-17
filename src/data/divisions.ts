@@ -7,6 +7,7 @@ export type Model = {
   image?: string;
   sizes?: string;
   specs: string[];
+  materials?: string;
 };
 export type LinePhoto = { src: string; caption: string };
 export type Hero =
@@ -63,11 +64,11 @@ export const divisionPages: DivisionPage[] = [
     rangeTitle: "Eight series",
     rangeNote: "Every series runs 220 to 240 V, 50 to 60 Hz, adjustable from ambient to 75 °C, rated IPX4.",
     range: [
-      { name: "Instant", image: "/range/wh-instant.webp", sizes: "3, 5.5 and 5.9 litres", specs: ["3 kW element", "0.65 bar rated pressure", "White, blue, black, grey and gold fronts"] },
-      { name: "Square", image: "/range/wh-square.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "0.8 bar rated pressure", "White, gold and black glass fronts"] },
-      { name: "Vertical metal", image: "/range/wh-vertical-metal.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"] },
+      { name: "Instant", image: "/range/wh-instant.webp", sizes: "3, 5.5 and 5.9 litres", specs: ["3 kW element", "0.65 bar rated pressure", "White, blue, black, grey and gold fronts"], materials: "SS304 tank · copper heating element · shockproof outer body" },
+      { name: "Square", image: "/range/wh-square.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "0.8 bar rated pressure", "White, gold and black glass fronts"], materials: "Heavy-gauge tank · blue diamond enamel coating · G-Tech anode rod" },
+      { name: "Vertical metal", image: "/range/wh-vertical-metal.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
       { name: "Vertical plastic", image: "/range/wh-vertical-plastic.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Lighter body, same tank", "Economical variant available"] },
-      { name: "Sumo", image: "/range/wh-vertical-metal-angle.webp", sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"] },
+      { name: "Sumo", image: "/range/wh-vertical-metal-angle.webp", sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
       { name: "Super slim horizontal", image: "/range/wh-horizontal.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "350 mm tall", "Fits above a door or under a shelf"] },
     ],
     table: {
@@ -111,10 +112,10 @@ export const divisionPages: DivisionPage[] = [
     rangeTitle: "Nine families",
     rangeNote: "Most families come in AC and BLDC versions. Suction figures are at the inlet, within ten percent.",
     range: [
-      { name: "Pyramid", image: "/range/hood-pyramid-60.webp", sizes: "60 cm", specs: ["90 W AC motor", "1,000 m³/h suction", "Push button or motion sensor"] },
-      { name: "Curve", image: "/range/hood-curve-punch-60.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "1,300 or 1,600 m³/h", "Curved toughened glass"] },
-      { name: "Curve plane, auto-clean", image: "/range/hood-c-plane-60.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "Heat auto-clean, 60 W strip", "Motion and touch control"] },
-      { name: "T shape", image: "/range/hood-t-shape-90.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "1,300 or 1,600 m³/h", "Digital display"] },
+      { name: "Pyramid", image: "/range/hood-pyramid-60.webp", sizes: "60 cm", specs: ["90 W AC motor", "1,000 m³/h suction", "Push button or motion sensor"], materials: "GP 120 GSM 0.5 mm sheet · black powder coat · baffle or cassette filter" },
+      { name: "Curve", image: "/range/hood-curve-punch-60.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "1,300 or 1,600 m³/h", "Curved toughened glass"], materials: "GP 120 GSM 0.5 mm sheet · 4 mm toughened front glass · perforated filter" },
+      { name: "Curve plane, auto-clean", image: "/range/hood-c-plane-60.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "Heat auto-clean, 60 W strip", "Motion and touch control"], materials: "GP 120 GSM 0.5 mm sheet · 6 mm top and 4 mm front toughened glass · metal housing" },
+      { name: "T shape", image: "/range/hood-t-shape-90.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "1,300 or 1,600 m³/h", "Digital display"], materials: "GP 120 GSM 0.5 mm sheet · 4 mm toughened front glass · perforated filter" },
       { name: "Draw, 60 cm", image: "/range/hood-c-draw-60.webp", sizes: "60 cm", specs: ["130 W BLDC", "1,600 m³/h, ten speeds and turbo", "45 to 55 dBA"] },
       { name: "Draw, 90 cm", image: "/range/hood-c-draw-90.webp", sizes: "90 cm", specs: ["130 W BLDC", "1,600 m³/h", "Matte black or steel grey"] },
       { name: "Cube", image: "/range/hood-cube-60.webp", sizes: "60 cm", specs: ["130 W BLDC or 200 W induction", "1,500 m³/h", "Auto-clean, 58 dB"] },

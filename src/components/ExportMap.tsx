@@ -6,7 +6,7 @@ import { worldMap } from "@/data/world-dots";
    so it can sit inside any section. Routes are illustrative and live in
    data/world-dots.ts. */
 export default function ExportMap({
-  title = "Built in Bahadurgarh. Shipped across borders.",
+  title = "Built in India. Shipped across borders.",
   note = "Export routes from the Bahadurgarh plant",
   className = "",
 }: {

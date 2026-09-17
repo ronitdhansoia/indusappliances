@@ -44,6 +44,9 @@ export default function RangeGrid({ title, note, models }: { title: string; note
                     <li key={s}>{s}</li>
                   ))}
                 </ul>
+                {m.materials && (
+                  <p className="mt-3 text-xs leading-relaxed text-muted">{m.materials}</p>
+                )}
               </div>
             </li>
           ))}

@@ -663,3 +663,18 @@ p {
   outline: 2px solid var(--color-ink);
   outline-offset: 4px;
 }
+
+/* Division sub-nav pins under the measured header; sections clear both */
+.division-subnav {
+  top: var(--header-h, 122px);
+}
+.subnav-offset {
+  scroll-margin-top: calc(var(--header-h, 122px) + 3rem);
+}
+.subnav-link[aria-current="true"] {
+  box-shadow: inset 0 -2px 0 var(--color-brand);
+}
+.subnav-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}

@@ -167,6 +167,22 @@ export default function OpenRoles({ roles }: { roles: Role[] }) {
                 </li>
               );
             })}
+            <li className="border-b border-line">
+              <button
+                type="button"
+                onClick={() => apply("")}
+                className="role-row grid w-full grid-cols-[minmax(0,1fr)_2.5rem] items-center gap-4 py-6 text-left sm:grid-cols-[minmax(0,7fr)_minmax(0,2fr)_minmax(0,2fr)_2.5rem] sm:gap-8 sm:py-7"
+              >
+                <span className="min-w-0">
+                  <span className="block text-sm text-muted">Any team</span>
+                  <span className="mt-1 block font-display text-[clamp(1.35rem,2.4vw,2.125rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
+                    Open application
+                  </span>
+                </span>
+                <span className="hidden text-body sm:col-span-2 sm:block">Tell us what you do well and we will find the line for it.</span>
+                <span className="justify-self-end text-sm text-ink underline underline-offset-4">Apply</span>
+              </button>
+            </li>
           </ol>
         </div>
       </section>
@@ -178,7 +194,7 @@ export default function OpenRoles({ roles }: { roles: Role[] }) {
               Submit your resume
             </h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-body">
-              Pick a role or apply generally. The form opens an email to the HR team with your details filled in. Attach your CV before you send it, and expect a reply within a week.
+              Pick a role or apply generally. The form opens an email to the HR team with your details filled in. Attach your CV before you send it. We reply within five working days.
             </p>
             <dl className="mt-10 grid gap-5 text-body">
               <div className="border-t border-line pt-4">
@@ -244,6 +260,22 @@ export default function OpenRoles({ roles }: { roles: Role[] }) {
               </span>
             </div>
           </form>
+        </div>
+      </section>
+
+      <section className="bg-night text-white">
+        <div className="shell flex flex-col gap-6 py-16 sm:flex-row sm:items-end sm:justify-between sm:py-20">
+          <div>
+            <h2 className="max-w-[18ch] font-display text-[clamp(1.75rem,3.4vw,3.25rem)] font-semibold leading-[1.05] tracking-[-0.03em]">
+              Don&apos;t see the right fit?
+            </h2>
+            <p className="mt-4 max-w-md text-white/75">
+              Lines open every year. Send a CV anyway and we will keep it for the next one.
+            </p>
+          </div>
+          <a href={`mailto:${contact.careersEmail}?subject=Open%20application`} className="btn btn-primary shrink-0">
+            Email {contact.careersEmail}
+          </a>
         </div>
       </section>
     </>

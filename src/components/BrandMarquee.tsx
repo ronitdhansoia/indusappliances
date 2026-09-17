@@ -21,7 +21,7 @@ function Row({ items, reverse }: { items: string[]; reverse?: boolean }) {
               alt={brand.replace(/-/g, " ")}
               width={260}
               height={260}
-              className="h-16 w-[7.5rem] scale-125 object-contain opacity-90 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-32 sm:w-72 sm:scale-100"
+              className="h-16 w-[7.5rem] scale-125 object-contain sm:h-32 sm:w-72 sm:scale-100"
             />
           </div>
         ))}
