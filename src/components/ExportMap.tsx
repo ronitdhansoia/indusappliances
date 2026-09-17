@@ -7,7 +7,7 @@ import { worldMap } from "@/data/world-dots";
    data/world-dots.ts. */
 export default function ExportMap({
   title = "Built in India. Shipped across borders.",
-  note = "Export routes from the Bahadurgarh plant",
+  note = "Export routes from India",
   className = "",
 }: {
   title?: string;
