@@ -16,7 +16,7 @@ export default function Divisions() {
       <div className="shell py-20 sm:py-28">
         <Reveal>
           <SectionHeader
-            title="Eight lines. One roof."
+            title="Eight lines. Eight factories."
           />
         </Reveal>
 

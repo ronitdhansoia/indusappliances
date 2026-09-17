@@ -489,11 +489,51 @@ p {
   stroke-width: 1.1;
   stroke-opacity: 0.35;
 }
+.export-map-label {
+  fill: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+/* Hover card: invisible hit circle over each pin; the pill fades and lifts in */
+.export-map-pin {
+  cursor: pointer;
+  outline: none;
+}
+.export-map-hit {
+  fill: transparent;
+}
+.export-map-tip {
+  opacity: 0;
+  transform: translateY(3px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+.export-map-tip rect {
+  fill: rgba(16, 27, 44, 0.96);
+  stroke: rgba(143, 163, 180, 0.4);
+}
+.export-map-tip text {
+  fill: #ffffff;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.export-map-pin:hover .export-map-tip,
+.export-map-pin:focus-visible .export-map-tip {
+  opacity: 1;
+  transform: none;
+}
+.export-map-pin:focus-visible .export-map-hit {
+  stroke: #ffffff;
+  stroke-width: 1px;
+}
 .export-map-dest {
   fill: #ffffff;
-  opacity: 0;
-  animation: export-dest 7s ease infinite;
-  animation-delay: var(--delay, 0s);
+  opacity: 0.9;
 }
 .export-map-dest-ring {
   fill: none;
@@ -586,9 +626,8 @@ p {
     stroke-dashoffset: 0;
     stroke-opacity: 0.4;
   }
-  .export-map-dest {
-    animation: none;
-    opacity: 1;
+  .export-map-tip {
+    transition: none;
   }
   .export-map-dest-ring,
   .export-map-origin-ring {
