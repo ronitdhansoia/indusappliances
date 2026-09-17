@@ -29,7 +29,7 @@ export default function Hero() {
 
       <div className="hero-copy shell pb-8 pt-14 sm:pb-14 sm:pt-36 lg:pt-44">
         <h1 className="hero-enter font-display max-w-[21ch] text-[clamp(2.5rem,6.4vw,7rem)] font-semibold leading-[0.96] tracking-[-0.04em]">
-          India&apos;s appliance brands are built here.
+          Global brands are built here.
         </h1>
 
         <div
