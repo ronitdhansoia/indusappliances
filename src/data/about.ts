@@ -152,7 +152,12 @@ export const board: Director[] = [
     image: "/about/aaryan-garg.jpg",
     initials: "AG",
   },
-  { name: "Surya Garg", role: "Director", image: null, initials: "SG" },
+  {
+    name: "Surya Garg",
+    role: "Director",
+    image: "/about/surya-garg.jpg",
+    initials: "SG",
+  },
 ];
 
 export const vision = {
