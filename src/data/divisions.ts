@@ -45,7 +45,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Water heaters",
     headline: "The water heater line India's brands are built on.",
     lead: "Indus was the first ODM in India to localise stainless steel tank manufacturing, in 2004. Today the Bahadurgarh plant builds two million instant and storage water heaters a year, from the tank weld to the box.",
-    hero: { kind: "product", src: "/range/wh-square-angle.webp", alt: "Square series storage water heater in white" },
+    hero: { kind: "video", src: "/videos/line-water-heater-tanks.mp4", poster: "/videos/line-water-heater-tanks-poster.jpg", alt: "Racks of finished stainless steel water heater tanks on the Bahadurgarh line" },
     facts: [
       "2,000,000 units a year, the largest instant water heater OEM in India",
       "Eight series from 3 to 100 litres, instant and storage",
@@ -100,6 +100,7 @@ export const divisionPages: DivisionPage[] = [
     ],
     lineTitle: "From the sheet to the showroom",
     line: [
+      { src: "/plant/hood-line-overhead.jpg", caption: "Chimney line 4, from above" },
       { src: "/plant/laser-cutting.jpg", caption: "Sheet laser cutting, BFC 3015" },
       { src: "/plant/press-brake-operator.jpg", caption: "CNC bending" },
       { src: "/plant/fabrication-line-sign.jpg", caption: "Fabrication line 1" },
@@ -141,7 +142,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Washing machines",
     headline: "Fully automatic top-loaders, in production since 2025.",
     lead: "The newest large line at Bahadurgarh builds 7 to 8 kilogram fully automatic top-load machines with diamond-pattern stainless drums, PCB control and self-cleaning tubs. Nine and ten kilogram capacities follow in 2026.",
-    hero: { kind: "image", src: "/plant/wm-conveyor.jpg", alt: "Rows of finished top-load washing machines on the conveyor" },
+    hero: { kind: "video", src: "/videos/line-washers-conveyor.mp4", poster: "/videos/line-washers-conveyor-poster.jpg", alt: "Finished top-load washing machines moving along the conveyor" },
     facts: [
       "300,000 units a year on a line commissioned in 2025",
       "7.0, 7.5 and 8.0 kg today, 9 and 10 kg from July 2026",
@@ -205,7 +206,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Fans",
     headline: "A million fans a year, around motors we wind ourselves.",
     lead: "Table, pedestal and wall fans, farratas and heavy-duty air circulators, all built around double ball-bearing motors from the Indus motor line next door.",
-    hero: { kind: "product", src: "/products/fans.png", alt: "Indus pedestal and table fans" },
+    hero: { kind: "video", src: "/videos/line-fan-motor-bench.mp4", poster: "/videos/line-fan-motor-bench-poster.jpg", alt: "A technician assembling fan motors at the bench on the motor line" },
     facts: [
       "1,000,000 units a year",
       "TPW, farrata and heavy-duty air circulator platforms",
@@ -360,6 +361,7 @@ export const divisionPages: DivisionPage[] = [
       { src: "/plant/moulding-operator.jpg", caption: "Mould trial on the injection floor" },
       { src: "/plant/moulding-machine.jpg", caption: "Production moulding" },
       { src: "/plant/laser-cutting.jpg", caption: "Sheet laser cutting" },
+      { src: "/videos/line-press-brake-poster.jpg", caption: "CNC press brake" },
       { src: "/plant/press-brake-parts.jpg", caption: "Press tools in use" },
     ],
     rangeTitle: "What the room does",

@@ -19,7 +19,7 @@ export default function ContactPage() {
       <Navbar />
       <main>
         <section className="relative isolate flex min-h-[min(66svh,42rem)] flex-col justify-end overflow-hidden bg-night text-white">
-          <Image src="/plant/aerial-entrance.jpg" alt="The entrance of the Indus Appliances plant from above" fill priority sizes="100vw" className="-z-20 object-cover" />
+          <Image src="/plant/plant-entrance.jpg" alt="The front entrance of the Indus Appliances plant in Bahadurgarh, with palms and hedges" fill priority sizes="100vw" className="-z-20 object-cover object-[50%_60%]" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/55 to-night/15" aria-hidden />
           <div className="shell pb-10 pt-40 sm:pb-14">
             <p className="text-sm text-white/70">Contact</p>
