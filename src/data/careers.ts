@@ -245,9 +245,9 @@ export const hero = {
   lines: ["Build", "what the", "world uses."],
   body: "Behind every appliance is a team of engineers, makers, operators and problem-solvers turning ideas into products used every day.",
   image: {
-    src: "/plant/hood-assembly-line.jpg",
-    alt: "Kitchen hood assembly line 2 at the Bahadurgarh plant, with an operator fitting a hood body in the foreground and colleagues working down the line",
-    caption: "Kitchen hood assembly line 2",
+    src: "/about/plant-dusk.jpg",
+    alt: "The Indus Appliances plant in Bahadurgarh at dusk, seen from above, its windows lit against the evening sky",
+    caption: "The Bahadurgarh plant at dusk",
   },
   marks: {
     place: "Bahadurgarh, India",
@@ -449,7 +449,7 @@ export const openApplication = {
 export const closing = {
   lines: ["Made in Bahadurgarh.", "Built by people who care how things are made."],
   image: {
-    src: "/about/plant-dusk.jpg",
-    alt: "The Indus Appliances plant in Bahadurgarh at dusk, seen from above",
+    src: "/plant/aerial.jpg",
+    alt: "The Indus Appliances plant in Bahadurgarh from the air, beside the Delhi Rohtak Road with fields around it",
   },
 };
