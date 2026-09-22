@@ -261,9 +261,10 @@
     will-change: clip-path;
   }
   .cr-hero-frame img {
-    object-position: 60% 50%;
+    /* A 3:2 frame in a 16:9 stage loses height only; keep the line sign. */
+    object-position: 50% 15%;
     transform: scale(calc(1 + var(--q, 1) * 0.14));
-    transform-origin: 78% 50%;
+    transform-origin: 72% 50%;
     will-change: transform;
   }
   .cr-hero-scrim {

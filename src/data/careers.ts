@@ -245,9 +245,9 @@ export const hero = {
   lines: ["Build", "what the", "world uses."],
   body: "Behind every appliance is a team of engineers, makers, operators and problem-solvers turning ideas into products used every day.",
   image: {
-    src: "/plant/hood-line-overhead.jpg",
-    alt: "Kitchen hood assembly line 4 at the Bahadurgarh plant, seen from above, with operators along the line and finished units boxed at the far end",
-    caption: "Chimney line 4, from above",
+    src: "/plant/hood-assembly-line.jpg",
+    alt: "Kitchen hood assembly line 2 at the Bahadurgarh plant, with an operator fitting a hood body in the foreground and colleagues working down the line",
+    caption: "Kitchen hood assembly line 2",
   },
   marks: {
     place: "Bahadurgarh, India",
@@ -309,9 +309,9 @@ export const stages: Stage[] = [
   {
     name: "Assembly",
     body: "Components become products across more than thirty high-volume manufacturing lines.",
-    image: "/plant/hood-assembly-wide.jpg",
-    alt: "Operators assembling kitchen hoods on assembly line 2",
-    caption: "Kitchen hood assembly line 2",
+    image: "/plant/motor-line-wide.jpg",
+    alt: "Operators on the motor assembly line with a bench of wound stators in front of them",
+    caption: "Motor assembly line",
   },
   {
     name: "Quality",
