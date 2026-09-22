@@ -669,6 +669,122 @@ p {
   scroll-padding-inline: clamp(1rem, 2vw, 2rem);
 }
 
+/* Comparison: objections and answers share one row grid so each pair lines
+   up. On wider screens the Indus column sits on a raised dark panel drawn
+   behind its cells; on phones the pairs alternate down a single column. */
+.cmp {
+  --cmp-gap: clamp(2rem, 5vw, 5rem);
+  --cmp-ox: 0rem;
+  --cmp-oy: 1.5rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.cmp-panel {
+  display: none;
+}
+.cmp-head {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1.25rem;
+  color: var(--color-muted);
+}
+.cmp-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.cmp-cell p {
+  min-width: 0;
+}
+.cmp-old {
+  padding: 1.125rem 0 0.5rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+  transition: color 0.3s ease;
+}
+.cmp-indus {
+  padding: 0.25rem 0 1.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--color-ink);
+}
+.cmp:hover .cmp-old {
+  color: var(--color-muted);
+}
+.group:hover .cmp-old {
+  color: var(--color-body);
+}
+@media (min-width: 768px) {
+  .cmp {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: var(--cmp-gap);
+    padding-block: var(--cmp-oy);
+  }
+  .cmp-panel {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    right: calc(-1 * var(--cmp-ox));
+    left: calc(
+      (100% - var(--cmp-gap)) * 5 / 12 + var(--cmp-gap) - var(--cmp-ox)
+    );
+    border-radius: 1.5rem;
+    border: 1px solid var(--color-line-dark);
+    background-color: var(--color-night);
+    box-shadow: 0 48px 96px -48px rgba(14, 22, 32, 0.6);
+  }
+  .cmp-head {
+    display: flex;
+    position: relative;
+    z-index: 1;
+  }
+  .cmp-head-indus {
+    color: #ffffff;
+  }
+  .cmp-cell {
+    position: relative;
+    z-index: 1;
+    padding: 1.375rem 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .cmp-old {
+    padding-right: 1rem;
+    font-size: 0.9375rem;
+  }
+  .cmp-indus {
+    margin-inline: -0.75rem;
+    padding-inline: 0.75rem;
+    border-top-color: var(--color-line-dark);
+    border-radius: 0.75rem;
+    font-size: 1.0625rem;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+  }
+  .group:hover .cmp-indus {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}
+@media (min-width: 1024px) {
+  .cmp {
+    --cmp-ox: 1.25rem;
+    --cmp-oy: 1.75rem;
+  }
+  .cmp-cell {
+    padding: 1.5rem 0;
+  }
+  .cmp-indus {
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+}
+
 /* Division sub-nav pins under the measured header; sections clear both */
 .division-subnav {
   top: var(--header-h, 122px);
