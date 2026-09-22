@@ -1,7 +1,25 @@
+export type Department =
+  | "Engineering"
+  | "Quality"
+  | "Production"
+  | "Sales"
+  | "Management";
+
+/* Departments in the order the filter shows them. Only those with at
+   least one open role are rendered. */
+export const departmentOrder: Department[] = [
+  "Engineering",
+  "Quality",
+  "Production",
+  "Sales",
+  "Management",
+];
+
 export type Role = {
   slug: string;
   title: string;
   team: string;
+  department: Department;
   experience: string;
   location: string;
   type: string;
@@ -17,6 +35,7 @@ export const roles: Role[] = [
     "slug": "chimney-production-head",
     "title": "Business development and OEM sales head",
     "team": "Sales",
+    "department": "Sales",
     "experience": "10 to 15 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -48,6 +67,7 @@ export const roles: Role[] = [
     "slug": "sales-production-manager",
     "title": "Sales and production manager",
     "team": "Sales and production",
+    "department": "Production",
     "experience": "5 to 10 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -69,6 +89,7 @@ export const roles: Role[] = [
     "slug": "chimney-designer",
     "title": "Chimney designer",
     "team": "Design and engineering",
+    "department": "Engineering",
     "experience": "0 to 2 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -96,6 +117,7 @@ export const roles: Role[] = [
     "slug": "quality-npd-head-moter-dept",
     "title": "Quality and NPD head, motor department",
     "team": "Quality",
+    "department": "Quality",
     "experience": "0 to 2 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -126,6 +148,7 @@ export const roles: Role[] = [
     "slug": "corporate-quality-head",
     "title": "Corporate quality head",
     "team": "Quality",
+    "department": "Quality",
     "experience": "0 to 2 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -154,6 +177,7 @@ export const roles: Role[] = [
     "slug": "iqc-head",
     "title": "IQC head",
     "team": "Quality",
+    "department": "Quality",
     "experience": "0 to 2 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -181,6 +205,7 @@ export const roles: Role[] = [
     "slug": "ea-to-director",
     "title": "Executive assistant to the Director",
     "team": "Management office",
+    "department": "Management",
     "experience": "5 to 6 years",
     "location": "Bahadurgarh, Haryana",
     "type": "Full time",
@@ -205,13 +230,226 @@ export const roles: Role[] = [
   }
 ];
 
-export const careerIntro = {
-  headline: "Great leadership and an awesome team culture.",
-  words: ["Meaningful.", "Inspiring.", "Fun."],
-  body: "These are a few of the words people use to describe their careers at Indus. As one of us, you are encouraged to exercise autonomy in your decision-making and to work collaboratively as part of the team. Every position at Indus is impactful and plays a central role in our projects and in the growth of the company.",
-  offers: [
-    "A friendly and flexible environment with lots of autonomy and meaningful work for everyone.",
-    "Funding for work-related courses and training to accelerate your professional development.",
-    "Smart, talented co-workers, all growing and enjoying working together to help us shape a better future.",
+/* Page copy. Every number and claim below is taken from content that
+   already exists on the site (site.ts, about.ts, divisions.ts) or from the
+   original careers page. Nothing is invented. */
+
+/* What the original careers page offers qualified candidates, verbatim. */
+export const offers = [
+  "A friendly and flexible environment with lots of autonomy and meaningful work for everyone.",
+  "Funding for work-related courses and training to accelerate your professional development.",
+  "Smart, talented co-workers, all growing and enjoying working together to help us shape a better future.",
+];
+
+export const hero = {
+  lines: ["Build", "what the", "world uses."],
+  body: "Behind every appliance is a team of engineers, makers, operators and problem-solvers turning ideas into products used every day.",
+  image: {
+    src: "/plant/hood-line-overhead.jpg",
+    alt: "Kitchen hood assembly line 4 at the Bahadurgarh plant, seen from above, with operators along the line and finished units boxed at the far end",
+    caption: "Chimney line 4, from above",
+  },
+  marks: {
+    place: "Bahadurgarh, India",
+    coords: "28.69° N / 76.93° E",
+    est: "Est. 2004",
+    kind: "OEM / ODM manufacturing",
+  },
+  statement: ["Your work doesn't stay on a screen.", "It leaves the factory."],
+};
+
+/* Figures from site.ts heroFacts and statsBand, and about.ts growth.facts. */
+export const scale = {
+  figures: [
+    { value: "50M+", label: "Products built", note: "since 2004" },
+    { value: "9", label: "Product lines", note: "under one roof" },
+    { value: "30+", label: "Assembly lines", note: "in Bahadurgarh" },
+    { value: "20+", label: "Years of manufacturing", note: "founded 2004" },
   ],
+  body: "Since 2004, Indus has designed, tooled and built water heaters, kitchen hoods, washing machines, air coolers, fans, motors, heating elements and air fryers in Bahadurgarh, Haryana, for more than fifty brands.",
+};
+
+export type Stage = {
+  name: string;
+  body: string;
+  image: string;
+  alt: string;
+  caption: string;
+};
+
+export const stages: Stage[] = [
+  {
+    name: "Design",
+    body: "Ideas begin as sketches, requirements and engineering decisions.",
+    image: "/plant/office-desk.jpg",
+    alt: "An engineer working on a drawing at a desk in the plant office",
+    caption: "Engineering office",
+  },
+  {
+    name: "Engineering",
+    body: "Concepts become drawings, bills of materials and specifications a line can build.",
+    image: "/plant/hood-parts-bench.jpg",
+    alt: "Kitchen hood components laid out on a bench: glass panel, motor, blower, impellers and control boards",
+    caption: "Hood components on the bench",
+  },
+  {
+    name: "Tooling",
+    body: "Those ideas become physical production systems, cut in our own tool room on CAD/CAM.",
+    image: "/plant/cnc-haas.jpg",
+    alt: "A Haas vertical machining centre cutting a mould block in the tool room",
+    caption: "Tool room, CNC machining",
+  },
+  {
+    name: "Fabrication",
+    body: "Sheet is laser cut, bent on CNC press brakes and powder coated under one roof.",
+    image: "/plant/laser-cutting.jpg",
+    alt: "Two operators at the BFC 3015 sheet laser cutting machine",
+    caption: "Sheet laser cutting, BFC 3015",
+  },
+  {
+    name: "Assembly",
+    body: "Components become products across more than thirty high-volume manufacturing lines.",
+    image: "/plant/hood-assembly-wide.jpg",
+    alt: "Operators assembling kitchen hoods on assembly line 2",
+    caption: "Kitchen hood assembly line 2",
+  },
+  {
+    name: "Quality",
+    body: "Every product earns the right to leave the factory. Lifecycle, energy and safety testing happens in-house.",
+    image: "/plant/motor-test.jpg",
+    alt: "A technician testing a motor on the bench in the test room",
+    caption: "Motor test bench",
+  },
+  {
+    name: "Dispatch",
+    body: "Millions of units a year, shipped on time to brands across India and beyond.",
+    image: "/plant/wm-conveyor.jpg",
+    alt: "A row of finished top-load washing machines moving along the conveyor",
+    caption: "Finished washing machines on the conveyor",
+  },
+];
+
+export const people = {
+  lines: ["Machines build products.", "People build Indus."],
+  photos: [
+    {
+      src: "/plant/team.jpg",
+      alt: "The Indus Appliances team seated and standing in front of the Bahadurgarh plant",
+      caption: "The team, in front of the plant",
+    },
+    {
+      src: "/plant/hood-final-check.jpg",
+      alt: "Two colleagues checking a finished kitchen hood at the end of the line",
+      caption: "Final inspection, kitchen hood line",
+    },
+    {
+      src: "/plant/motor-stator-bench.jpg",
+      alt: "An operator fitting a stator at the motor assembly bench",
+      caption: "Motor assembly bench",
+    },
+  ],
+  values: [
+    {
+      name: "Ownership",
+      body: "Make decisions. Take responsibility for the outcome. Every position at Indus plays a central role in its projects and in the growth of the company.",
+    },
+    {
+      name: "Learning",
+      body: "Build skills through real products, real problems and real production. Work-related courses and training are funded.",
+    },
+    {
+      name: "Collaboration",
+      body: "Engineering, production, quality, sales and leadership work as one system. Most roles here coordinate across departments every day.",
+    },
+    {
+      name: "Impact",
+      body: "The work you do becomes something physical, built in volume and used every day.",
+    },
+  ],
+};
+
+export const path = {
+  lines: ["Don't just join a role.", "Build a career."],
+  steps: [
+    {
+      name: "Learn",
+      body: "Start with real work on real lines, alongside people who know their craft.",
+    },
+    {
+      name: "Build",
+      body: "Take products, processes and problems end to end, from concept through production.",
+    },
+    {
+      name: "Own",
+      body: "Exercise autonomy in your decisions and take responsibility for the result.",
+    },
+    {
+      name: "Lead",
+      body: "Build, mentor and lead teams as the lines keep growing.",
+    },
+  ],
+  training: {
+    title: "Training, funded.",
+    body: offers[1],
+  },
+};
+
+export const working = {
+  items: [
+    {
+      lines: ["Real responsibility.", "From day one."],
+      body: "Every position at Indus is impactful and plays a central role in our projects and in the growth of the company. You are encouraged to exercise autonomy in your decision-making.",
+      image: "/plant/moulding-operator-2.jpg",
+      alt: "An operator at the controls of an injection moulding machine",
+      caption: "Injection moulding",
+    },
+    {
+      lines: ["Learn while", "building."],
+      body: "Skills are built on real products and real production, and Indus funds work-related courses and training to accelerate your professional development.",
+      image: "/plant/office-meeting.jpg",
+      alt: "Two colleagues working through figures together at a desk",
+      caption: "Plant office",
+    },
+    {
+      lines: ["Work with people", "who know their craft."],
+      body: "Smart, talented co-workers, all growing and enjoying working together. Quality here is owned by the people on the line, not only by inspection.",
+      image: "/plant/winding-machine.jpg",
+      alt: "An operator at the motor winding machine",
+      caption: "Motor winding",
+    },
+    {
+      lines: ["See your work", "become real."],
+      body: "Nine product lines. More than thirty assembly lines. Fifty million products since 2004, in homes across India and beyond.",
+      image: "/plant/wm-conveyor-2.jpg",
+      alt: "Finished washing machines lined up on the conveyor after test",
+      caption: "Washing machine line, after test",
+    },
+  ],
+};
+
+export const positions = {
+  lines: ["Find your place", "on the line."],
+  note: "Every role is at the Bahadurgarh plant.",
+};
+
+export const apply = {
+  lines: ["Ready to", "build with us?"],
+  body: "Pick a role or apply generally. Sending opens an email to the HR team with your details filled in. Attach your CV before you send it. We reply within five working days.",
+  attachNote: "Your mail app opens with the details filled in. Attach your CV, then send.",
+  sentNote: "Your mail app should now be open. Attach your CV, then send.",
+};
+
+export const openApplication = {
+  lines: ["Don't see", "your role?"],
+  answer: ["We still want", "to hear from you."],
+  body: "Our lines keep growing. Send us your CV and we'll keep you in mind for what comes next.",
+  cta: "Send an open application",
+};
+
+export const closing = {
+  lines: ["Made in Bahadurgarh.", "Built by people who care how things are made."],
+  image: {
+    src: "/about/plant-dusk.jpg",
+    alt: "The Indus Appliances plant in Bahadurgarh at dusk, seen from above",
+  },
 };

@@ -676,33 +676,6 @@ p {
   scroll-padding-inline: clamp(1rem, 2vw, 2rem);
 }
 
-/* Careers: plus/minus disclosure mark drawn with two hairlines */
-.role-plus::before,
-.role-plus::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 14px;
-  height: 1.5px;
-  background: var(--color-ink);
-  transform: translate(-50%, -50%);
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-.role-plus::after {
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-.role-plus.is-open::after {
-  transform: translate(-50%, -50%) rotate(0deg);
-}
-.role-row:hover .role-plus {
-  border-color: var(--color-ink);
-}
-.role-row:focus-visible {
-  outline: 2px solid var(--color-ink);
-  outline-offset: 4px;
-}
-
 /* Division sub-nav pins under the measured header; sections clear both */
 .division-subnav {
   top: var(--header-h, 122px);
