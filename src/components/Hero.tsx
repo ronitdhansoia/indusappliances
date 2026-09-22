@@ -2,15 +2,16 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { contact, heroFacts } from "@/data/site";
 
-/* Full-bleed plant footage as the ground, a single large headline on it,
-   and the facts a sourcing manager needs written as plain sentences. */
+/* Full-bleed plant footage as the ground (the INDUS Group film from the
+   original site, muted), a single large headline on it, and the facts a
+   sourcing manager needs written as plain sentences. */
 export default function Hero() {
   return (
     <section className="hero-stage relative isolate flex flex-col justify-end overflow-hidden bg-night text-white">
       <video
         className="absolute inset-0 -z-20 h-full w-full object-cover"
-        src="/videos/hero-line.mp4"
-        poster="/videos/hero-line-poster.jpg"
+        src="/videos/hero-indus-group.mp4"
+        poster="/videos/hero-indus-group-poster.jpg"
         autoPlay
         muted
         loop
