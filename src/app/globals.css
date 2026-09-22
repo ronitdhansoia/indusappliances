@@ -467,13 +467,6 @@ p {
   stroke-width: 0.62;
   stroke-linecap: round;
 }
-.export-map-india {
-  fill: none;
-  stroke: #ffffff;
-  stroke-opacity: 0.95;
-  stroke-width: 0.7;
-  stroke-linecap: round;
-}
 .export-map-arc {
   fill: none;
   stroke: #ffffff;

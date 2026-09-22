@@ -14,7 +14,7 @@ export default function ExportMap({
   note?: string;
   className?: string;
 }) {
-  const { view, dots, india, origin, destinations } = worldMap;
+  const { view, dots, origin, destinations } = worldMap;
   const u = view.w / 760; // one unit is roughly one pixel at the panel's desktop width
 
   /* Hover card: a pill centred above the dot, sized to the name */
@@ -58,7 +58,6 @@ export default function ExportMap({
           </filter>
         </defs>
         <path d={dots} className="export-map-dots" style={{ strokeWidth: 3.4 * u }} />
-        <path d={india} className="export-map-india" style={{ strokeWidth: 3.8 * u }} />
         {arcs.map((a) => (
           <g key={a.name} style={{ "--delay": a.delay } as CSSProperties}>
             <path
