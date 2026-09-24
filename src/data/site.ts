@@ -191,6 +191,7 @@ export const brands = [
   "Hindware",
   "Kaff",
   "Signify",
+  "Philips",
   "Realme",
   "Reliance",
   "Flipkart",

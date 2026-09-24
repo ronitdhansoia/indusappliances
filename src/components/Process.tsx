@@ -11,7 +11,7 @@ export default function Process() {
           <div className="flex items-end justify-between gap-10">
             <div className="min-w-0 flex-1">
               <SectionHeader
-                title="From your sketch to the truck"
+                title="From design to dispatch"
               />
             </div>
             {/* Sheet metal rolling on our fabrication line */}
