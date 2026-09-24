@@ -207,26 +207,29 @@
   max-width: 22ch;
 }
 
-/* Pinned hero on wide screens with motion allowed: the photograph starts
-   as a frame beside the headline, then grows to the whole stage as the
-   page scrolls, and the statement lands on it. --p-copy, --q and --p-state
-   are written by useScrollProgress. */
+/* Pinned hero on wide screens with motion allowed: the photograph fills
+   the stage and holds still; only the copy moves. The headline block rises
+   out over the first third of the scroll, the statement lands over the
+   last. --p-copy and --p-state are written by useScrollProgress. */
 @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
   .cr-hero {
-    height: 240svh;
+    height: 200svh;
+    background: var(--color-night);
   }
   .cr-hero-stage {
     position: sticky;
     top: var(--header-h, 122px);
     height: calc(100svh - var(--header-h, 122px));
+    color: #ffffff;
   }
   .cr-hero-copy {
     position: absolute;
     inset: 0;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     padding-top: clamp(1.25rem, 2.6vh, 2rem);
-    padding-bottom: 3.25rem;
+    padding-bottom: clamp(2rem, 5vh, 3.25rem);
     opacity: calc(1 - var(--p-copy, 0));
     transform: translateY(calc(var(--p-copy, 0) * -48px));
     will-change: opacity, transform;
@@ -234,18 +237,45 @@
   .cr-hero[data-copy="gone"] .cr-hero-copy {
     visibility: hidden;
   }
+  .cr-hero-copy .cr-sheet {
+    color: var(--color-steel);
+  }
+  .cr-hero-copy .cr-sheet-rule {
+    background: rgba(255, 255, 255, 0.18);
+  }
   .cr-hero-h1 {
     margin-top: auto;
-    width: 56%;
+    width: 60%;
     font-size: clamp(4.25rem, 8vw, 10rem);
   }
   .cr-hero-lede {
     width: 50%;
   }
+  .cr-hero-lede p {
+    color: rgba(255, 255, 255, 0.82);
+  }
+  .cr-hero-lede .cr-link {
+    color: #ffffff;
+  }
+  .cr-hero-lede .cr-arrow {
+    border-color: rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+  }
+  .cr-hero-lede .cr-link:hover .cr-arrow,
+  .cr-hero-lede .cr-link:focus-visible .cr-arrow {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: var(--color-ink);
+  }
+  .cr-hero-lede .btn:focus-visible,
+  .cr-hero-lede .cr-link:focus-visible {
+    outline-color: #ffffff;
+  }
   .cr-hero-figure {
     position: absolute;
     inset: 0;
     margin: 0;
+    padding: 0;
     z-index: 1;
     pointer-events: none;
   }
@@ -253,44 +283,55 @@
     position: absolute;
     inset: 0;
     aspect-ratio: auto;
-    /* Initial window: top 13%, the right edge, 3.25rem up from the
-       bottom (level with the buttons), left 56%. */
-    clip-path: inset(
-      calc(var(--q, 1) * 13%) 0 calc(var(--q, 1) * 3.25rem) calc(var(--q, 1) * 56%)
-    );
-    will-change: clip-path;
   }
   .cr-hero-frame img {
-    /* The frame opens on the lit building; the sunset arrives as it grows. */
-    object-position: 50% 50%;
-    transform: scale(calc(1 + var(--q, 1) * 0.16));
-    transform-origin: 68% 58%;
-    will-change: transform;
+    object-position: 55% 50%;
+    opacity: 0;
+    transition: opacity 1.2s ease 0.1s;
   }
+  .cr-hero[data-in="true"] .cr-hero-frame img {
+    opacity: 1;
+  }
+  .cr-hero-shutter {
+    display: none;
+  }
+  /* Same scrim as the home hero: heavier at the foot and the left edge. */
   .cr-hero-scrim {
-    opacity: var(--p-state, 0);
+    opacity: 1;
+    background:
+      linear-gradient(
+        to top,
+        rgba(11, 17, 26, 0.95) 0%,
+        rgba(11, 17, 26, 0.6) 40%,
+        rgba(11, 17, 26, 0.25) 100%
+      ),
+      linear-gradient(
+        to right,
+        rgba(11, 17, 26, 0.6) 0%,
+        rgba(11, 17, 26, 0.2) 45%,
+        rgba(11, 17, 26, 0) 80%
+      );
   }
+  /* Drawing marks in the bottom-right corner, leaving with the copy. */
   .cr-hero-marks {
     position: absolute;
-    inset: 0;
-    display: block;
+    left: auto;
+    top: auto;
+    right: var(--cr-gutter);
+    bottom: clamp(2rem, 5vh, 3.25rem);
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.4rem 1.5rem;
     margin: 0;
-    color: var(--color-muted);
+    color: rgba(255, 255, 255, 0.72);
     opacity: calc(1 - var(--p-copy, 0));
+  }
+  .cr-hero-marks span {
+    position: static;
+    text-align: right;
   }
   .cr-hero[data-copy="gone"] .cr-hero-marks {
     visibility: hidden;
-  }
-  .cr-hero-marks span {
-    position: absolute;
-    left: 56%;
-    right: var(--cr-gutter);
-  }
-  .cr-hero-marks span:nth-child(-n + 2) {
-    top: calc(13% - 1.5rem);
-  }
-  .cr-hero-marks span:nth-child(n + 3) {
-    bottom: 1.15rem;
   }
   .cr-hero-statement {
     position: absolute;

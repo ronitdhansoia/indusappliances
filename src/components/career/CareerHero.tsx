@@ -8,10 +8,10 @@ import { useScrollProgress } from "./useScrollProgress";
 import Arrow from "./Arrow";
 import Lines from "./Lines";
 
-/* Wide screens with motion allowed pin the hero. The photograph opens as a
-   frame beside the headline, grows to the whole stage as the page scrolls,
-   and the statement lands on it. Everywhere else the same elements simply
-   stack: headline, frame, statement. */
+/* Wide screens with motion allowed pin the hero. The photograph fills the
+   stage and holds still; the headline block rises out as the page scrolls
+   and the statement lands in its place. Everywhere else the same elements
+   simply stack: headline, frame, statement. */
 const PIN = "(min-width: 1024px) and (prefers-reduced-motion: no-preference)";
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
@@ -30,11 +30,9 @@ export default function CareerHero({ count }: { count: number }) {
   }, []);
 
   const onProgress = useCallback((p: number, el: HTMLElement) => {
-    const copy = clamp01(p / 0.24);
-    const frame = smooth(clamp01((p - 0.04) / 0.52));
-    const state = clamp01((p - 0.6) / 0.24);
+    const copy = smooth(clamp01(p / 0.32));
+    const state = smooth(clamp01((p - 0.42) / 0.3));
     el.style.setProperty("--p-copy", copy.toFixed(4));
-    el.style.setProperty("--q", (1 - frame).toFixed(4));
     el.style.setProperty("--p-state", state.toFixed(4));
     el.setAttribute("data-copy", copy >= 1 ? "gone" : "shown");
   }, []);
