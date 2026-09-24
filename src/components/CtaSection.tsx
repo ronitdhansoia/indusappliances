@@ -2,23 +2,32 @@ import { contact } from "@/data/site";
 import Reveal from "./Reveal";
 import ExportMap from "./ExportMap";
 
-export default function CtaSection({ map = true }: { map?: boolean }) {
+export default function CtaSection({
+  map = true,
+  title = "Put your next product on our line",
+  body = "Send us a spec, a sketch or just a category. We reply within 24 hours on business days.",
+  subject = "Quote request",
+}: {
+  map?: boolean;
+  title?: string;
+  body?: string;
+  subject?: string;
+}) {
   return (
     <section id="contact" className="grid-ink scroll-mt-28 bg-night text-white">
       <div className="shell py-20 sm:py-28">
         <div className={map ? "grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-16" : "max-w-3xl"}>
         <Reveal>
           <h2 className="display max-w-4xl text-[clamp(2.2rem,4.5vw,3.75rem)]">
-            Put your next product on our line
+            {title}
             <span className="text-brand">.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-steel">
-            Send us a spec, a sketch or just a category. We reply within 24
-            hours on business days.
+            {body}
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href={`mailto:${contact.email}?subject=Quote%20request`}
+              href={`mailto:${contact.email}?subject=${encodeURIComponent(subject)}`}
               className="btn btn-primary"
             >
               Request a quote
