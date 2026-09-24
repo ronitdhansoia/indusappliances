@@ -147,12 +147,46 @@ export const mission = {
   ],
 };
 
+export type Certificate = {
+  image: string;
+  alt: string;
+  title: string;
+  product: string;
+  ref: string;
+};
+
 export const quality = {
-  certificate: {
-    image: "/about/iso-9001.jpg",
-    alt: "ISO 9001 quality management certificate issued to Indus Appliances",
-    caption: "ISO 9001 certificate",
-  },
+  lead: "ISO 9001 certified, with Bureau of Indian Standards licences to carry the ISI mark on storage water heaters, single-phase motors and desert air coolers.",
+  certificates: [
+    {
+      image: "/about/iso-9001.jpg",
+      alt: "ISO 9001 quality management certificate issued to Indus Appliances",
+      title: "ISO 9001 : 2015",
+      product: "Quality management system",
+      ref: "Management system certificate",
+    },
+    {
+      image: "/about/bis-is-302-water-heaters.jpg",
+      alt: "Bureau of Indian Standards letter granting Indus Appliances a product certification licence under IS 302 Part 2 Section 21 for stationary storage type electric water heaters",
+      title: "IS 302-2-21 : 2024",
+      product: "Stationary storage electric water heaters, 6 to 35 litres",
+      ref: "BIS licence CM/L-9512571619",
+    },
+    {
+      image: "/about/bis-is-996-motors.jpg",
+      alt: "Bureau of Indian Standards letter granting Indus Appliances a product certification licence under IS 996 for single-phase AC induction motors",
+      title: "IS 996 : 2009",
+      product: "Single-phase AC induction motors for general purpose",
+      ref: "BIS licence CM/L-9512556017",
+    },
+    {
+      image: "/about/bis-is-3315-air-coolers.jpg",
+      alt: "Bureau of Indian Standards letter granting Indus Appliances a product certification licence under IS 3315 for evaporative desert air coolers",
+      title: "IS 3315 : 2024",
+      product: "Evaporative air coolers, desert type",
+      ref: "BIS licence CM/L-9512563224",
+    },
+  ] satisfies Certificate[],
   pillars: [
     {
       title: "We are pioneers",
