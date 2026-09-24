@@ -23,7 +23,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/55 to-night/15" aria-hidden />
           <div className="shell pb-10 pt-40 sm:pb-14">
             <p className="text-sm text-white/70">Contact</p>
-            <h1 className="mt-3 max-w-[16ch] font-display text-[clamp(2.5rem,5.4vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em]">Come and see the line.</h1>
+            <h1 className="mt-3 max-w-[16ch] font-display text-[clamp(2.5rem,5.4vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.04em]">Come and visit us.</h1>
             <p className="mt-7 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
               Send a spec, a sketch or just a category. Our engineering team answers every enquiry within 24 hours on business days, and the plant is 40 minutes from Delhi.
             </p>
@@ -72,9 +72,9 @@ export default function ContactPage() {
         <section className="border-t border-line bg-soft">
           <div className="shell grid gap-8 py-16 sm:grid-cols-3 sm:py-20">
             {[
-              ["Within 24 hours", "An engineer, not a form response, replies on business days."],
-              ["Within a week", "A first proposal: platform, tooling route and indicative volume pricing."],
-              ["Any time", "Visit the plant. Most customers do before their first order."],
+              ["Within 24 hours", "Our dedicated team will reach out to you."],
+              ["Within a week", "You will receive your proposal."],
+              ["Visit our product experience centre", "Contact us to see our product display room for all categories."],
             ].map(([when, what]) => (
               <div key={when} className="border-t border-line pt-4">
                 <p className="font-display text-2xl font-semibold tracking-[-0.02em] text-ink">{when}</p>
