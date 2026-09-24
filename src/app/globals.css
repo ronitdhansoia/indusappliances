@@ -407,14 +407,14 @@ p {
   top: 50%;
   z-index: 30;
   transform: translateY(-50%);
-  color: #ffffff;
-  mix-blend-mode: difference;
   transition: opacity 0.3s ease;
 }
 .about-index[data-hidden="true"] {
   opacity: 0;
   pointer-events: none;
 }
+/* Each label carries the tone of the ground behind it: ink over light
+   sections, white over dark ones, crossfading as the boundary passes. */
 .about-index a {
   display: flex;
   align-items: center;
@@ -422,8 +422,15 @@ p {
   padding: 0.3rem 0;
   font-size: 0.875rem;
   font-weight: 500;
-  opacity: 0.45;
-  transition: opacity 0.25s ease;
+  color: var(--color-ink);
+  opacity: 0.62;
+  transition:
+    color 0.3s ease,
+    opacity 0.25s ease;
+}
+.about-index a[data-tone="dark"] {
+  color: #ffffff;
+  opacity: 0.72;
 }
 .about-index a::before {
   content: "";
