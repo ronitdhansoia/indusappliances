@@ -12,9 +12,9 @@ export default function CtaSection() {
             Put your next product on our line
             <span className="text-brand">.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-steel">
-            Send us a spec, a sketch, or just a category, and our engineering
-            team will answer within 24 hours on business days.
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-steel">
+            Send us a spec, a sketch or just a category. We reply within 24
+            hours on business days.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
@@ -24,15 +24,7 @@ export default function CtaSection() {
               Request a quote
             </a>
             <a href={contact.salesPhoneHref} className="btn btn-ghost-dark">
-              Call sales · {contact.salesPhone}
-            </a>
-            <a
-              href={contact.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="anno text-steel underline-offset-4 transition-colors duration-200 hover:text-white hover:underline"
-            >
-              or message us on WhatsApp
+              Call {contact.salesPhone}
             </a>
           </div>
         </Reveal>

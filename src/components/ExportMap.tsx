@@ -1,10 +1,12 @@
 import type { CSSProperties } from "react";
 import { worldMap } from "@/data/world-dots";
 
-/* Drop-in panel: a dotted map of the export region with routes that draw
-   out from the Bahadurgarh plant in a slow loop. Pure SVG and CSS, no
-   runtime JS. Sizes are derived from the view width so the same look
-   holds whatever the crop. Destinations live in data/world-dots.ts. */
+/* Dotted map of the plant's export reach. The land dots sit on one layer
+   and the routes on another that the browser composites separately, so
+   only the routes ever repaint. Each route is a faint trace with a bright
+   pulse travelling along it and a ring that answers when it lands. No
+   labels. Destinations and the projection come from data/world-dots.ts,
+   regenerated with scripts/dotmap.py. */
 export default function ExportMap({
   title = "Built in India. Shipped across borders.",
   note = "Export routes from India",
@@ -14,27 +16,19 @@ export default function ExportMap({
   note?: string;
   className?: string;
 }) {
-  const { view, dots, origin, destinations } = worldMap;
-  const u = view.w / 760; // one unit is roughly one pixel at the panel's desktop width
-
-  /* Hover card: a pill centred above the dot, sized to the name */
-  const tipFor = (x: number, y: number, name: string) => {
-    const w = (name.length * 7.2 + 22) * u;
-    const h = 24 * u;
-    return { x: x - w / 2, y: y - h - 12 * u, w, h, tx: x, ty: y - h / 2 - 12 * u + 4.3 * u };
-  };
-  const originTip = tipFor(origin.x, origin.y, "Bahadurgarh plant");
+  const { view, spacing, dots, origin, destinations } = worldMap;
+  const u = view.w / 760; // roughly one pixel at the panel's desktop width
+  const box = `0 0 ${view.w} ${view.h}`;
 
   const arcs = destinations.map((d, i) => {
     const dist = Math.hypot(d.x - origin.x, d.y - origin.y);
-    const lift = Math.min(view.h * 0.16, dist * 0.22) + 5 * u;
+    const lift = Math.min(view.h * 0.22, dist * 0.2) + 4 * u;
     const cx = (origin.x + d.x) / 2;
     const cy = (origin.y + d.y) / 2 - lift;
     return {
       ...d,
       path: `M${origin.x} ${origin.y} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${d.x} ${d.y}`,
-      delay: `${(i * 0.5).toFixed(2)}s`,
-      tip: tipFor(d.x, d.y, d.name),
+      delay: `${(i * 0.55).toFixed(2)}s`,
     };
   });
 
@@ -46,64 +40,42 @@ export default function ExportMap({
         {title}
       </p>
 
-      <svg
-        viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
-        className="mt-6 block h-auto w-full sm:mt-8"
-        role="img"
-        aria-label={`Map of export routes from Bahadurgarh, India to ${destinations.map((d) => d.name).join(", ")}`}
-      >
-        <defs>
-          <filter id="export-map-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation={5 * u} />
-          </filter>
-        </defs>
-        <path d={dots} className="export-map-dots" style={{ strokeWidth: 3.4 * u }} />
-        {arcs.map((a) => (
-          <g key={a.name} style={{ "--delay": a.delay } as CSSProperties}>
-            <path
-              d={a.path}
-              pathLength={1}
-              className="export-map-arc export-map-arc-glow"
-              filter="url(#export-map-glow)"
-              style={{ strokeWidth: 6.5 * u }}
-            />
-            <path d={a.path} pathLength={1} className="export-map-arc" style={{ strokeWidth: 1.9 * u }} />
-            <circle cx={a.x} cy={a.y} r={4 * u} className="export-map-dest" />
-            <circle cx={a.x} cy={a.y} r={4 * u} className="export-map-dest-ring" style={{ strokeWidth: 1.5 * u }} />
-            <g className="export-map-pin" tabIndex={0} role="img" aria-label={a.name}>
-              <title>{a.name}</title>
-              <circle cx={a.x} cy={a.y} r={14 * u} className="export-map-hit" />
-              <g className="export-map-tip">
-                <rect x={a.tip.x} y={a.tip.y} width={a.tip.w} height={a.tip.h} rx={a.tip.h / 2} style={{ strokeWidth: 1 * u }} />
-                <text x={a.tip.tx} y={a.tip.ty} textAnchor="middle" style={{ fontSize: 12 * u }}>
-                  {a.name}
-                </text>
-              </g>
-            </g>
-          </g>
-        ))}
-        <circle cx={origin.x} cy={origin.y} r={6 * u} className="export-map-origin-ring" style={{ strokeWidth: 1.8 * u }} />
-        <circle cx={origin.x} cy={origin.y} r={6 * u} className="export-map-origin-ring export-map-origin-ring-2" style={{ strokeWidth: 1.8 * u }} />
-        <circle cx={origin.x} cy={origin.y} r={5.4 * u} className="export-map-origin" />
-        <text
-          x={origin.x + 11 * u}
-          y={origin.y + 4.5 * u}
-          className="export-map-label"
-          style={{ fontSize: 12.5 * u }}
+      <div className="relative mt-6 sm:mt-8">
+        <svg viewBox={box} className="block h-auto w-full" aria-hidden>
+          <path d={dots} className="export-map-dots" style={{ strokeWidth: spacing * 0.5 }} />
+        </svg>
+
+        <svg
+          viewBox={box}
+          className="export-map-routes absolute inset-0 h-full w-full"
+          role="img"
+          aria-label={`Export routes from Bahadurgarh, India to ${destinations.map((d) => d.name).join(", ")}`}
         >
-          India
-        </text>
-        <g className="export-map-pin" tabIndex={0} role="img" aria-label="Bahadurgarh plant, India">
-          <title>Bahadurgarh plant</title>
-          <circle cx={origin.x} cy={origin.y} r={14 * u} className="export-map-hit" />
-          <g className="export-map-tip">
-            <rect x={originTip.x} y={originTip.y} width={originTip.w} height={originTip.h} rx={originTip.h / 2} style={{ strokeWidth: 1 * u }} />
-            <text x={originTip.tx} y={originTip.ty} textAnchor="middle" style={{ fontSize: 12 * u }}>
-              Bahadurgarh plant
-            </text>
-          </g>
-        </g>
-      </svg>
+          {arcs.map((a) => (
+            <g key={a.name} style={{ "--delay": a.delay } as CSSProperties}>
+              <path d={a.path} className="export-map-trace" style={{ strokeWidth: 1.3 * u }} />
+              <path
+                d={a.path}
+                pathLength={1}
+                className="export-map-pulse export-map-pulse-halo"
+                style={{ strokeWidth: 5.5 * u }}
+              />
+              <path d={a.path} pathLength={1} className="export-map-pulse" style={{ strokeWidth: 1.8 * u }} />
+              <circle cx={a.x} cy={a.y} r={3 * u} className="export-map-dest" />
+              <circle cx={a.x} cy={a.y} r={3 * u} className="export-map-dest-ring" style={{ strokeWidth: 1.2 * u }} />
+            </g>
+          ))}
+          <circle cx={origin.x} cy={origin.y} r={5 * u} className="export-map-origin-ring" style={{ strokeWidth: 1.6 * u }} />
+          <circle
+            cx={origin.x}
+            cy={origin.y}
+            r={5 * u}
+            className="export-map-origin-ring export-map-origin-ring-2"
+            style={{ strokeWidth: 1.6 * u }}
+          />
+          <circle cx={origin.x} cy={origin.y} r={4.6 * u} className="export-map-origin" />
+        </svg>
+      </div>
 
       <figcaption className="mt-5 flex items-center gap-2 text-sm text-steel sm:mt-6">
         <span className="inline-block h-2 w-2 rounded-full bg-brand" aria-hidden />

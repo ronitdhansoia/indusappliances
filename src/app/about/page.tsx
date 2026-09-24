@@ -8,7 +8,6 @@ import AboutOpening from "@/components/about/AboutOpening";
 import GrowthLine from "@/components/about/GrowthLine";
 import WhyIndus from "@/components/about/WhyIndus";
 import FounderLetter from "@/components/about/FounderLetter";
-import Board from "@/components/about/Board";
 import VisionMission from "@/components/about/VisionMission";
 import Quality from "@/components/about/Quality";
 import Recognition from "@/components/about/Recognition";
@@ -43,7 +42,6 @@ export default function AboutPage() {
         </section>
         <WhyIndus />
         <FounderLetter />
-        <Board />
         <VisionMission />
         <Quality />
         <Recognition />

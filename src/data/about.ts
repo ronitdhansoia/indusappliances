@@ -36,7 +36,7 @@ export const growth = {
   ],
   facts: [
     "50 million products supplied",
-    "Field failure rate under 2 percent",
+    "Field failure rate of 0.2 percent",
     "More than 30 assembly lines",
     "More than 20 years in operation",
   ],
@@ -126,40 +126,6 @@ export const founder = {
   ],
 };
 
-export type Director = {
-  name: string;
-  role: string;
-  image: string | null;
-  initials: string;
-};
-
-export const board: Director[] = [
-  {
-    name: "Dinesh Garg",
-    role: "Founder and Managing Director",
-    image: "/about/dinesh-garg.jpg",
-    initials: "DG",
-  },
-  {
-    name: "Ruby Garg",
-    role: "Director",
-    image: "/about/ruby-garg.jpg",
-    initials: "RG",
-  },
-  {
-    name: "Aaryan Garg",
-    role: "Director",
-    image: "/about/aaryan-garg.jpg",
-    initials: "AG",
-  },
-  {
-    name: "Surya Garg",
-    role: "Director",
-    image: "/about/surya-garg.jpg",
-    initials: "SG",
-  },
-];
-
 export const vision = {
   statement:
     "To be a globally trusted and preferred partner in consumer durables, transforming everyday living through innovation, intelligent manufacturing, superior quality and sustainable value creation.",
@@ -211,7 +177,6 @@ export const aboutSections = [
   { id: "growth", label: "Growth" },
   { id: "why", label: "Why Indus" },
   { id: "founder", label: "From the founder" },
-  { id: "board", label: "Board" },
   { id: "vision", label: "Vision and mission" },
   { id: "quality", label: "Quality" },
   { id: "recognition", label: "Recognition" },

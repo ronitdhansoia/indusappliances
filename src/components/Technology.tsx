@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { technology } from "@/data/site";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
@@ -18,8 +19,21 @@ export default function Technology() {
               Every Indus line feeds a live digital loop, monitored, tested and
               tuned in our in-house quality lab through lifecycle, energy and
               safety assessments. Fewer breakdowns, faster decisions, and a
-              field failure rate under 2%.
+              field failure rate of 0.2%.
             </p>
+            {/* Shop floor: a still for now, to be replaced by the short clip */}
+            <figure className="mt-8 max-w-md">
+              <div className="relative aspect-video overflow-hidden rounded-2xl bg-night">
+                <Image
+                  src="/videos/line-cnc-control-poster.jpg"
+                  alt="An operator at the control panel of a CNC machine on the Bahadurgarh shop floor"
+                  fill
+                  sizes="(min-width: 1024px) 36vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <figcaption className="anno mt-3 text-muted">CNC control, Bahadurgarh</figcaption>
+            </figure>
           </Reveal>
           <Reveal delay={120}>
             <ul>

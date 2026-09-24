@@ -13,7 +13,7 @@ const rows = [
   {
     old: "Quality inspected only at the end",
     indus:
-      "Adaptive QC on every line, lifecycle-tested in our in-house lab, under 2% field failure",
+      "Adaptive QC on every line, lifecycle-tested in our in-house lab, 0.2% field failure",
   },
   {
     old: "Catalogue products, re-badged",
@@ -66,12 +66,11 @@ export default function Comparison() {
         <Reveal>
           <div className="grid gap-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-12">
             <h2 className="display max-w-3xl text-[clamp(2.2rem,4.5vw,3.75rem)] text-ink">
-              Contract manufacturing, without the usual fine print
-              <span className="text-brand">.</span>
+              How are we different from other manufacturers
+              <span className="text-brand">?</span>
             </h2>
             <p className="max-w-md text-base leading-relaxed text-body lg:justify-self-end">
-              Six things brands usually have to write into a contract, and how
-              Indus handles each of them by default.
+              What most manufacturers do, and what Indus does instead.
             </p>
           </div>
         </Reveal>
@@ -97,10 +96,9 @@ export default function Comparison() {
               </div>
             ))}
           </div>
-          <p className="mt-10 max-w-xl text-[15px] leading-relaxed text-muted sm:mt-12">
-            Most customers visit the plant before their first order.{" "}
+          <p className="mt-10 text-[15px] sm:mt-12">
             <Link href="/contact" className="hero-link !text-ink">
-              Come and see the line
+              Come and see our manufacturing facility and product range
             </Link>
           </p>
         </Reveal>

@@ -60,7 +60,7 @@ export const divisions: Division[] = [
   {
     id: "02",
     name: "Kitchen Hoods",
-    capacity: "200,000",
+    capacity: "400,000",
     capacityNote: "units / year",
     blurb:
       "Nine chimney families from pyramid to filterless with auto-clean, up to 1,600 m³/h suction, built end-to-end under one roof.",
@@ -70,7 +70,7 @@ export const divisions: Division[] = [
   {
     id: "03",
     name: "Washing Machines",
-    capacity: "300,000",
+    capacity: "400,000",
     capacityNote: "units / year",
     blurb:
       "Fully automatic 7 to 8 kg top-load machines with diamond stainless drums, engineered to the latest energy-efficiency standards.",
@@ -80,7 +80,7 @@ export const divisions: Division[] = [
   {
     id: "04",
     name: "Air Fryers",
-    capacity: "200,000",
+    capacity: "2,000,000",
     capacityNote: "units / year",
     blurb:
       "Our newest line: assembly commissioned in 2026, delivering energy-efficient air fryers for every kitchen.",
@@ -110,7 +110,7 @@ export const divisions: Division[] = [
   {
     id: "07",
     name: "Air Coolers",
-    capacity: "400,000",
+    capacity: "600,000",
     capacityNote: "units / year",
     blurb:
       "Desert, personal and commercial coolers from 45 to 150 litres, on mechanical and electronic platforms.",
@@ -120,8 +120,8 @@ export const divisions: Division[] = [
   {
     id: "08",
     name: "Heating Elements",
-    capacity: "2 & 3 kW",
-    capacityNote: "copper elements, in-house",
+    capacity: "3,000,000",
+    capacityNote: "elements / year",
     blurb:
       "The copper heating elements inside every Indus water heater, made on our own line: 2 kW for storage models and 3 kW for instant, rated 220 to 240 V.",
     image: "/plant/test-panel.jpg",
@@ -171,7 +171,7 @@ export const heroFacts = [
 
 export const statsBand = [
   { value: "50M+", label: "products supplied" },
-  { value: "<2%", label: "field failure rate" },
+  { value: "0.2%", label: "field failure rate" },
   { value: "30+", label: "assembly lines" },
   { value: "5+", label: "manufacturing facilities" },
   { value: "1000+", label: "employees" },
@@ -318,9 +318,9 @@ export const technology = [
 
 export const productionLine = [
   { name: "Water Heater", capacity: "2,000,000 / yr", image: "/products/water-heater.png" },
-  { name: "Kitchen Hood", capacity: "200,000 / yr", image: "/products/hood-curve.png" },
-  { name: "Air Cooler", capacity: "400,000 / yr", image: "/products/personal-cooler.png" },
+  { name: "Kitchen Hood", capacity: "400,000 / yr", image: "/products/hood-curve.png" },
+  { name: "Air Cooler", capacity: "600,000 / yr", image: "/products/personal-cooler.png" },
   { name: "Pedestal Fan", capacity: "1,000,000 / yr", image: "/products/pedestal-fan.png" },
-  { name: "Air Fryer", capacity: "200,000 / yr", image: "/products/air-fryer.png" },
+  { name: "Air Fryer", capacity: "2,000,000 / yr", image: "/products/air-fryer.png" },
   { name: "BLDC Motor", capacity: "200,000 / yr", image: "/products/motor.png" },
 ];

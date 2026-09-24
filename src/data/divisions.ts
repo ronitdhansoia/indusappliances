@@ -93,7 +93,7 @@ export const divisionPages: DivisionPage[] = [
     lead: "From the sheet that becomes the canopy to the BLDC motor inside it, every part of an Indus hood is made on the Bahadurgarh floor. Pyramid to filterless, 60 to 90 centimetres, up to 1,600 cubic metres an hour.",
     hero: { kind: "image", src: "/plant/hood-assembly-wide.jpg", alt: "Kitchen hood assembly line 2 at the Bahadurgarh plant" },
     facts: [
-      "200,000 units a year across nine families",
+      "400,000 units a year across nine families",
       "130 W BLDC motors with ten speeds and turbo, 45 to 55 dBA",
       "Heat auto-clean, motion and touch control, filterless designs",
       "Sheet laser cutting, CNC bending, turret punching and motors all in-house",
@@ -144,7 +144,7 @@ export const divisionPages: DivisionPage[] = [
     lead: "The newest large line at Bahadurgarh builds 7 to 8 kilogram fully automatic top-load machines with diamond-pattern stainless drums, PCB control and self-cleaning tubs. Nine and ten kilogram capacities follow in 2026.",
     hero: { kind: "video", src: "/videos/line-washers-conveyor.mp4", poster: "/videos/line-washers-conveyor-poster.jpg", alt: "Finished top-load washing machines moving along the conveyor" },
     facts: [
-      "300,000 units a year on a line commissioned in 2025",
+      "400,000 units a year on a line commissioned in 2025",
       "7.0, 7.5 and 8.0 kg today, 9 and 10 kg from July 2026",
       "Diamond stainless drum, PCB control, self tub clean on every model",
       "Every machine runs a live wash and leak test before packing",
@@ -183,7 +183,7 @@ export const divisionPages: DivisionPage[] = [
     lead: "Air fryer assembly was commissioned in 2026. Manual-knob and digital-touch series from 4 to 8 litres, built to the same test regime as everything else that leaves Bahadurgarh.",
     hero: { kind: "product", src: "/products/air-fryer.png", alt: "Digital touch air fryer" },
     facts: [
-      "200,000 units a year, line commissioned in 2026",
+      "2,000,000 units a year, line commissioned in 2026",
       "4, 4.5, 5, 6, 7 and 8 litre baskets",
       "1,400 to 1,800 W, 80 to 200 °C, 60 minute timer",
       "Non-stick detachable basket, auto shut-off and cool-touch body",
@@ -278,7 +278,7 @@ export const divisionPages: DivisionPage[] = [
     lead: "Indus entered air coolers in 2022 and now builds five model families on mechanical and electronic platforms, with the tanks moulded, the motors wound and the pads cut on the same site.",
     hero: { kind: "video", src: "/videos/line-coolers-row.mp4", poster: "/videos/line-coolers-row-poster.jpg", alt: "A row of finished air coolers moving down the line" },
     facts: [
-      "400,000 units a year since 2022",
+      "600,000 units a year since 2022",
       "Five families from 45 litre personal to 150 litre commercial",
       "Ice chamber, honeycomb pads and four-way swing on every model",
       "One year product and two year motor warranty",
@@ -323,7 +323,7 @@ export const divisionPages: DivisionPage[] = [
     lead: "Indus makes its own copper heating elements in Bahadurgarh, the part that turns two million water heaters a year into hot water. Made on site, they are matched to each tank, rated for Indian mains, and tested with the heater they go into.",
     hero: { kind: "image", src: "/plant/test-panel.jpg", alt: "Electrical test panel on the water heater line at the Bahadurgarh plant" },
     facts: [
-      "Copper heating elements made in-house since the first water heater line",
+      "3,000,000 copper heating elements a year, made in-house since the first water heater line",
       "2 kW elements for storage heaters, 3 kW for instant",
       "Rated 220 to 240 V, 50 to 60 Hz, for Indian mains",
       "Every element tested in the finished heater before dispatch",
