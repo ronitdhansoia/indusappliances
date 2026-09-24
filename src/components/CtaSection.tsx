@@ -2,11 +2,11 @@ import { contact } from "@/data/site";
 import Reveal from "./Reveal";
 import ExportMap from "./ExportMap";
 
-export default function CtaSection() {
+export default function CtaSection({ map = true }: { map?: boolean }) {
   return (
     <section id="contact" className="grid-ink scroll-mt-28 bg-night text-white">
       <div className="shell py-20 sm:py-28">
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-16">
+        <div className={map ? "grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-16" : "max-w-3xl"}>
         <Reveal>
           <h2 className="display max-w-4xl text-[clamp(2.2rem,4.5vw,3.75rem)]">
             Put your next product on our line
@@ -28,9 +28,11 @@ export default function CtaSection() {
             </a>
           </div>
         </Reveal>
-        <Reveal delay={120}>
-          <ExportMap />
-        </Reveal>
+        {map && (
+          <Reveal delay={120}>
+            <ExportMap />
+          </Reveal>
+        )}
         </div>
       </div>
     </section>

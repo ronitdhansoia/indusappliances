@@ -146,7 +146,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <ul className="hidden items-center gap-8 lg:flex">
+          <ul className="hidden items-center gap-5 lg:flex xl:gap-8">
             {nav.map((item) =>
               item.children ? (
                 <li
@@ -163,7 +163,7 @@ export default function Navbar() {
                     aria-expanded={menu}
                     aria-controls="divisions-menu"
                     onClick={closeMenuNow}
-                    className="nav-link flex items-center gap-1.5 py-2 text-[15px] font-medium text-ink/80 transition-colors duration-200 hover:text-ink"
+                    className="nav-link flex items-center gap-1.5 whitespace-nowrap py-2 text-[14px] font-medium text-ink/80 transition-colors duration-200 hover:text-ink xl:text-[15px]"
                     data-active={menu ? "true" : undefined}
                   >
                     {item.label}
@@ -179,7 +179,7 @@ export default function Navbar() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="nav-link py-2 text-[15px] font-medium text-ink/80 transition-colors duration-200 hover:text-ink"
+                    className="nav-link whitespace-nowrap py-2 text-[14px] font-medium text-ink/80 transition-colors duration-200 hover:text-ink xl:text-[15px]"
                   >
                     {item.label}
                   </Link>
@@ -191,7 +191,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={`mailto:${contact.email}?subject=Quote%20request`}
-              className="btn btn-primary hidden !px-7 !py-3.5 sm:inline-flex"
+              className="btn btn-primary hidden whitespace-nowrap !px-7 !py-3.5 sm:inline-flex"
             >
               Request a quote
             </a>

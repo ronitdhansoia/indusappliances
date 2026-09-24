@@ -32,6 +32,7 @@ export const nav = [
     ],
   },
   { label: "Smart Technology", href: "/smart-technology" },
+  { label: "Export", href: "/export" },
   { label: "Career", href: "/career" },
   { label: "Contact Us", href: "/contact" },
 ];
