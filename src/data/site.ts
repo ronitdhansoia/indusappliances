@@ -201,16 +201,12 @@ export const brands = [
   "GM",
   "Intek",
   "Goldmedal",
-  "Ruwa",
   "Somany",
   "Infra-market",
   "RR",
   "CG",
   "VW",
   "Parryware",
-  "Lazer",
-  "Inalsa",
-  "Padmini",
 ];
 
 export const awards = [
