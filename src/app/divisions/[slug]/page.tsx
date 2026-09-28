@@ -50,7 +50,7 @@ export default async function DivisionPageRoute({ params }: Props) {
           </ul>
         </section>
         <div id="range" className="subnav-offset">
-          <RangeGrid title={page.rangeTitle} note={page.rangeNote} models={page.range} />
+          <RangeGrid title={page.rangeTitle} note={page.rangeNote} models={page.range} cutout={page.rangeCutout} />
         </div>
         {page.table && (
           <div id="specs" className="subnav-offset">

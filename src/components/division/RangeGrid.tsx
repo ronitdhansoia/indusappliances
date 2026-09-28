@@ -1,7 +1,10 @@
 import Image from "next/image";
 import type { Model } from "@/data/divisions";
 
-export default function RangeGrid({ title, note, models }: { title: string; note?: string; models: Model[] }) {
+export default function RangeGrid({ title, note, models, cutout }: { title: string; note?: string; models: Model[]; cutout?: boolean }) {
+  const imageClass = cutout
+    ? "object-contain p-8 [filter:drop-shadow(0_14px_18px_rgba(14,22,32,0.12))_drop-shadow(0_1px_2px_rgba(14,22,32,0.05))]"
+    : "object-contain p-8";
   return (
     <section className="bg-white">
       <div className="shell py-16 sm:py-24">
@@ -32,7 +35,7 @@ export default function RangeGrid({ title, note, models }: { title: string; note
             <li key={m.name}>
               <div className="relative aspect-[4/3] overflow-hidden bg-soft">
                 {m.image && (
-                  <Image src={m.image} alt={m.name} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw" className="object-contain p-8" />
+                  <Image src={m.image} alt={m.name} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw" className={imageClass} />
                 )}
               </div>
               <div className="mt-4">

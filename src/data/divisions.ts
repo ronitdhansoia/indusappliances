@@ -27,6 +27,8 @@ export type DivisionPage = {
   line: LinePhoto[];
   rangeTitle: string;
   rangeNote?: string;
+  /* Range images are transparent cutouts: render them straight on the tile with a soft ground shadow. */
+  rangeCutout?: boolean;
   range: Model[];
   table?: SpecTable;
 };
@@ -63,13 +65,14 @@ export const divisionPages: DivisionPage[] = [
     ],
     rangeTitle: "Eight series",
     rangeNote: "Every series runs 220 to 240 V, 50 to 60 Hz, adjustable from ambient to 75 °C, rated IPX4.",
+    rangeCutout: true,
     range: [
-      { name: "Instant", image: "/range/wh-instant.webp", sizes: "3, 5.5 and 5.9 litres", specs: ["3 kW element", "0.65 bar rated pressure", "White, blue, black, grey and gold fronts"], materials: "SS304 tank · copper heating element · shockproof outer body" },
-      { name: "Square", image: "/range/wh-square.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "0.8 bar rated pressure", "White, gold and black glass fronts"], materials: "Heavy-gauge tank · blue diamond enamel coating · G-Tech anode rod" },
-      { name: "Vertical metal", image: "/range/wh-vertical-metal.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
-      { name: "Vertical plastic", image: "/range/wh-vertical-plastic.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Lighter body, same tank", "Economical variant available"] },
-      { name: "Sumo", image: "/range/wh-vertical-metal-angle.webp", sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
-      { name: "Super slim horizontal", image: "/range/wh-horizontal.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "350 mm tall", "Fits above a door or under a shelf"] },
+      { name: "Instant", image: "/range/wh-instant-cut.webp", sizes: "3, 5.5 and 5.9 litres", specs: ["3 kW element", "0.65 bar rated pressure", "White, blue, black, grey and gold fronts"], materials: "SS304 tank · copper heating element · shockproof outer body" },
+      { name: "Square", image: "/range/wh-square-cut.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "0.8 bar rated pressure", "White, gold and black glass fronts"], materials: "Heavy-gauge tank · blue diamond enamel coating · G-Tech anode rod" },
+      { name: "Vertical metal", image: "/range/wh-vertical-metal-cut.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
+      { name: "Vertical plastic", image: "/range/wh-vertical-plastic-cut.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Lighter body, same tank", "Economical variant available"] },
+      { name: "Sumo", image: "/range/wh-vertical-metal-angle-cut.webp", sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
+      { name: "Super slim horizontal", image: "/range/wh-horizontal-cut.webp", sizes: "10, 15 and 25 litres", specs: ["2 kW element", "350 mm tall", "Fits above a door or under a shelf"] },
     ],
     table: {
       title: "Series at a glance",
@@ -293,12 +296,13 @@ export const divisionPages: DivisionPage[] = [
     ],
     rangeTitle: "Five families",
     rangeNote: "Cooling efficiency is 75 percent across the range. Every cooler ships with anti-bacterial pads and multi-direction castors.",
+    rangeCutout: true,
     range: [
-      { name: "Glacier Wave", series: "Mini desert", image: "/range/cooler-glacier-wave.webp", sizes: "45 and 55 litres", specs: ["8 to 9 metre air throw", "2,200 to 2,500 CMH, 95 to 105 W", "Cools up to 3,000 sq ft"] },
-      { name: "Weather King", series: "Desert", image: "/range/cooler-weather-king.webp", sizes: "80 and 100 litres", specs: ["13 metre air throw", "3,800 CMH, 200 W, 16 inch blade", "Cools up to 5,000 sq ft"] },
-      { name: "Polar Chill", series: "Semi-commercial", image: "/range/cooler-polar-chill.webp", sizes: "90 litres", specs: ["20 metre air throw", "7,500 CMH, 250 W", "20 inch blade"] },
-      { name: "Snow Crest", series: "Semi-commercial", image: "/range/cooler-snow-crest.webp", sizes: "120 and 140 litres", specs: ["20 metre air throw", "7,800 CMH, 250 W", "20 inch blade"] },
-      { name: "Supercool X", series: "Commercial", image: "/range/cooler-supercool-x.webp", sizes: "130 and 150 litres", specs: ["8,000 to 8,800 CMH", "300 W, 20 inch blade", "Halls, shops and workshops"] },
+      { name: "Glacier Wave", series: "Mini desert", image: "/range/cooler-glacier-wave-cut.webp", sizes: "45 and 55 litres", specs: ["8 to 9 metre air throw", "2,200 to 2,500 CMH, 95 to 105 W", "Cools up to 3,000 sq ft"] },
+      { name: "Weather King", series: "Desert", image: "/range/cooler-weather-king-cut.webp", sizes: "80 and 100 litres", specs: ["13 metre air throw", "3,800 CMH, 200 W, 16 inch blade", "Cools up to 5,000 sq ft"] },
+      { name: "Polar Chill", series: "Semi-commercial", image: "/range/cooler-polar-chill-cut.webp", sizes: "90 litres", specs: ["20 metre air throw", "7,500 CMH, 250 W", "20 inch blade"] },
+      { name: "Snow Crest", series: "Semi-commercial", image: "/range/cooler-snow-crest-cut.webp", sizes: "120 and 140 litres", specs: ["20 metre air throw", "7,800 CMH, 250 W", "20 inch blade"] },
+      { name: "Supercool X", series: "Commercial", image: "/range/cooler-supercool-x-cut.webp", sizes: "130 and 150 litres", specs: ["8,000 to 8,800 CMH", "300 W, 20 inch blade", "Halls, shops and workshops"] },
     ],
     table: {
       title: "Models compared",
