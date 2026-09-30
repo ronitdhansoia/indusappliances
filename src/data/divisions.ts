@@ -161,12 +161,13 @@ export const divisionPages: DivisionPage[] = [
       { src: "/line/wm-hv-test.webp", caption: "High-voltage and earth test panel" },
       { src: "/line/wm-finished.webp", caption: "Labelled and ready to pack" },
     ],
+    rangeCutout: true,
     rangeTitle: "Three capacities, two lids",
     range: [
-      { name: "7.0 kg", image: "/range/wm-compact.webp", specs: ["135 W aluminium-winding motor", "525 × 495 × 920 mm, 22 kg", "Knob programme selector, soft-closing lid"] },
-      { name: "7.5 kg", image: "/range/wm-front.webp", specs: ["150 W aluminium-winding motor", "550 × 520 × 920 mm, 22 kg", "Soft-closing or opaque classic lid"] },
-      { name: "8.0 kg", image: "/range/wm-angle.webp", specs: ["165 W aluminium-winding motor", "550 × 520 × 980 mm, 24 kg", "Soft-closing or transparent lid"] },
-      { name: "Inside the drum", image: "/range/wm-open.webp", specs: ["Diamond-pattern stainless drum", "Strong pulsator, fuzzy logic wash", "Ten wash programmes, self tub clean"] },
+      { name: "7.0 kg", image: "/range/wm-compact-cut.webp", specs: ["135 W aluminium-winding motor", "525 × 495 × 920 mm, 22 kg", "Knob programme selector, soft-closing lid"] },
+      { name: "7.5 kg", image: "/range/wm-front-cut.webp", specs: ["150 W aluminium-winding motor", "550 × 520 × 920 mm, 22 kg", "Soft-closing or opaque classic lid"] },
+      { name: "8.0 kg", image: "/range/wm-angle-cut.webp", specs: ["165 W aluminium-winding motor", "550 × 520 × 980 mm, 24 kg", "Soft-closing or transparent lid"] },
+      { name: "Inside the drum", image: "/range/wm-open-cut.webp", specs: ["Diamond-pattern stainless drum", "Strong pulsator, fuzzy logic wash", "Ten wash programmes, self tub clean"] },
     ],
     table: {
       title: "Specifications",
