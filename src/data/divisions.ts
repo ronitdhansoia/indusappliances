@@ -122,7 +122,7 @@ export const divisionPages: DivisionPage[] = [
       { name: "T shape", image: "/range/hood-t-shape-90-cut.webp", sizes: "60, 75 and 90 cm", specs: ["200 W AC or 130 W BLDC", "1,300 or 1,600 m³/h", "Digital display"], materials: "GP 120 GSM 0.5 mm sheet · 4 mm toughened front glass · perforated filter" },
       { name: "Draw, 60 cm", image: "/range/hood-c-draw-60-cut.webp", sizes: "60 cm", specs: ["130 W BLDC", "1,600 m³/h, ten speeds and turbo", "45 to 55 dBA"] },
       { name: "Draw, 90 cm", image: "/range/hood-c-draw-90-cut.webp", sizes: "90 cm", specs: ["130 W BLDC", "1,600 m³/h", "Matte black or steel grey"] },
-      { name: "Cube", image: "/range/hood-cube-60.webp", sizes: "60 cm", specs: ["130 W BLDC or 200 W induction", "1,500 m³/h", "Auto-clean, 58 dB"] },
+      { name: "Cube", image: "/range/hood-cube-60-cut.webp", sizes: "60 cm", specs: ["130 W BLDC or 200 W induction", "1,500 m³/h", "Auto-clean, 58 dB"] },
       { name: "Inclined", image: "/range/hood-slant-60-cut.webp", sizes: "60 cm", specs: ["200 W AC", "1,200 m³/h", "Touchless motion control"] },
       { name: "Oval, ductless", image: "/range/hood-oval-75-cut.webp", sizes: "75 cm", specs: ["130 W BLDC", "Filterless and ductless", "Wall mounted, no chimney"] },
     ],
