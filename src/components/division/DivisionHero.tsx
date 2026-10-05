@@ -29,7 +29,7 @@ export default function DivisionHero({ page, capacity, capacityNote }: { page: D
       {hero.kind === "video" ? (
         <video className="absolute inset-0 -z-20 h-full w-full object-cover" src={hero.src} poster={hero.poster} autoPlay muted loop playsInline preload="metadata" aria-label={hero.alt} />
       ) : (
-        <Image src={hero.src} alt={hero.alt} fill priority sizes="100vw" className="-z-20 object-cover" />
+        <Image src={hero.src} alt={hero.alt} fill priority sizes="100vw" className="-z-20 object-cover" style={hero.position ? { objectPosition: hero.position } : undefined} />
       )}
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/55 to-night/15" aria-hidden />
       <div className="shell pb-10 pt-40 sm:pb-14">

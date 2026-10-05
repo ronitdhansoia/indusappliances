@@ -14,7 +14,8 @@ export type Model = {
 export type LinePhoto = { src: string; caption: string };
 export type Hero =
   | { kind: "video"; src: string; poster: string; alt: string }
-  | { kind: "image"; src: string; alt: string }
+  /* position: CSS object-position, for wide banners whose subject sits off-centre. */
+  | { kind: "image"; src: string; alt: string; position?: string }
   | { kind: "product"; src: string; alt: string };
 export type SpecTable = { title: string; note?: string; columns: string[]; rows: string[][] };
 
@@ -49,7 +50,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Water heaters",
     headline: "The water heater line India's brands are built on.",
     lead: "Indus was the first ODM in India to localise stainless steel tank manufacturing, in 2004. Today the Bahadurgarh plant builds two million instant and storage water heaters a year, from the tank weld to the box.",
-    hero: { kind: "video", src: "/videos/line-water-heater-tanks.mp4", poster: "/videos/line-water-heater-tanks-poster.jpg", alt: "Racks of finished stainless steel water heater tanks on the Bahadurgarh line" },
+    hero: { kind: "image", src: "/plant/water-heater-banner.webp", alt: "Indus storage and instant water heaters on a steel rack beside the assembly floor", position: "72% center" },
     facts: [
       "2,000,000 units a year, the largest instant water heater OEM in India",
       "Eight series from 3 to 100 litres, instant and storage",
