@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CareerHero from "@/components/career/CareerHero";
 import ScaleGrid from "@/components/career/ScaleGrid";
-import ProductionLine from "@/components/career/ProductionLine";
 import People from "@/components/career/People";
 import CareerPath from "@/components/career/CareerPath";
 import WorkingAtIndus from "@/components/career/WorkingAtIndus";
@@ -26,7 +25,6 @@ export default function CareerPage() {
       <main className="cr">
         <CareerHero count={roles.length} />
         <ScaleGrid />
-        <ProductionLine />
         <People />
         <CareerPath />
         <WorkingAtIndus />

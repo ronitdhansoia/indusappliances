@@ -10,7 +10,7 @@ export default function People() {
     <section id="life" className="cr-section under-header-offset border-t border-line" aria-labelledby="cr-people-title">
       <div className="shell">
         <InView>
-          <SheetHeader n="04" title="People" note="The Bahadurgarh team" />
+          <SheetHeader n="03" title="People" note="The Bahadurgarh team" />
           <h2 id="cr-people-title" className="cr-display mt-10 text-[clamp(2.25rem,7.2vw,7rem)] text-ink">
             <Lines lines={people.lines} />
           </h2>

@@ -103,7 +103,7 @@ export default function CareersBoard({ roles }: { roles: Role[] }) {
       <section id="roles" className="cr-section under-header-offset border-t border-line" aria-labelledby="cr-roles-title">
         <div className="shell">
           <InView>
-            <SheetHeader n="07" title="Open positions" note={positions.note} />
+            <SheetHeader n="06" title="Open positions" note={positions.note} />
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
               <h2 id="cr-roles-title" className="cr-display text-[clamp(2.25rem,7.2vw,7rem)] text-ink">
                 <Lines lines={positions.lines} />
@@ -188,7 +188,7 @@ export default function CareersBoard({ roles }: { roles: Role[] }) {
       >
         <div className="shell grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
           <InView>
-            <SheetHeader n="08" title="Apply" />
+            <SheetHeader n="07" title="Apply" />
             <h2 id="cr-apply-title" className="cr-display mt-10 text-[clamp(2.25rem,6.4vw,5.75rem)] text-ink">
               <Lines lines={applyCopy.lines} />
             </h2>

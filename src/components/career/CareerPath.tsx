@@ -13,7 +13,7 @@ export default function CareerPath() {
     <section id="growth" className="cr-section under-header-offset border-t border-line" aria-labelledby="cr-path-title">
       <div className="shell">
         <InView>
-          <SheetHeader n="05" title="Growth" note="Learn, build, own, lead" />
+          <SheetHeader n="04" title="Growth" note="Learn, build, own, lead" />
           <h2 id="cr-path-title" className="cr-display mt-10 text-[clamp(2.25rem,7.2vw,7rem)] text-ink">
             <Lines lines={path.lines} />
           </h2>
