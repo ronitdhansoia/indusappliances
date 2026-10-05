@@ -39,8 +39,8 @@ export default function ExportPage() {
         </section>
         <CtaSection
           map={false}
-          title="Ship your next product from Bahadurgarh"
-          body="Send a spec, a sketch or just a category, and tell us the market. We reply within 24 hours on business days."
+          title="Want us to make your product?"
+          body="Tell us what you want to sell and which country it is for. We will reply within one working day."
           subject="Export enquiry"
         />
       </main>
