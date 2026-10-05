@@ -10,6 +10,7 @@ import RangeGrid from "@/components/division/RangeGrid";
 import SpecTable from "@/components/division/SpecTable";
 import DivisionNav from "@/components/division/DivisionNav";
 import DivisionSubnav from "@/components/division/DivisionSubnav";
+import DispatchSection from "@/components/division/DispatchSection";
 import { divisionBySlug, divisionPages, summaryFor } from "@/data/divisions";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -60,6 +61,11 @@ export default async function DivisionPageRoute({ params }: Props) {
         <div id="line" className="subnav-offset">
           <LineStrip title={page.lineTitle} photos={page.line} intro="Photographed on the Bahadurgarh floor." />
         </div>
+        {page.dispatch && (
+          <div id="dispatch" className="subnav-offset">
+            <DispatchSection dispatch={page.dispatch} />
+          </div>
+        )}
         <DivisionNav slug={page.slug} />
         <BrandMarquee />
         <CtaSection />

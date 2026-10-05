@@ -18,6 +18,7 @@ export type Hero =
   | { kind: "image"; src: string; alt: string; position?: string }
   | { kind: "product"; src: string; alt: string };
 export type SpecTable = { title: string; note?: string; columns: string[]; rows: string[][] };
+export type Dispatch = { title: string; body: string; points: string[]; image: string; alt: string; caption: string };
 
 export type DivisionPage = {
   slug: string;
@@ -34,6 +35,8 @@ export type DivisionPage = {
   rangeCutout?: boolean;
   range: Model[];
   table?: SpecTable;
+  /* Closing block on the finished-goods floor: packed stock waiting for trucks. */
+  dispatch?: Dispatch;
 };
 
 const bySlug = Object.fromEntries(
@@ -91,13 +94,21 @@ export const divisionPages: DivisionPage[] = [
         ["Super slim horizontal", "10 / 15 / 25 / 50 / 80 / 100 L", "2 kW", "0.8 bar"],
       ],
     },
+    dispatch: {
+      title: "Packed and ready to ship",
+      body: "Finished water heaters leave the line in our customers' own boxes. They are stacked by model in marked bays on the dispatch floor and loaded straight onto trucks.",
+      points: ["Packed in your brand's boxes", "Stacked by model, ready to load", "Shipped across India and abroad"],
+      image: "/line/wh-dispatch.webp",
+      alt: "Stacks of boxed instant and storage water heaters in marked bays on the Bahadurgarh dispatch floor",
+      caption: "Finished stock on the dispatch floor, Bahadurgarh",
+    },
   },
   {
     slug: "kitchen-hoods",
     name: "Kitchen hoods",
     headline: "Nine hood families, cut, bent, wound and assembled under one roof.",
     lead: "From the sheet that becomes the canopy to the BLDC motor inside it, every part of an Indus hood is made on the Bahadurgarh floor. Pyramid to filterless, 60 to 90 centimetres, up to 1,600 cubic metres an hour.",
-    hero: { kind: "image", src: "/plant/hood-assembly-wide.jpg", alt: "Kitchen hood assembly line 2 at the Bahadurgarh plant" },
+    hero: { kind: "image", src: "/plant/hood-banner.webp", alt: "Indus chimney, curved, T-shape, inclined and pyramid kitchen hoods on a steel display wall in the fabrication shop", position: "62% center" },
     facts: [
       "400,000 units a year across nine families",
       "130 W BLDC motors with ten speeds and turbo, 45 to 55 dBA",
