@@ -35,7 +35,14 @@ export default function RangeGrid({ title, note, models, cutout }: { title: stri
             <li key={m.name}>
               <div className="relative aspect-[4/3] overflow-hidden bg-soft">
                 {m.image && (
-                  <Image src={m.image} alt={m.name} fill sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw" className={imageClass} />
+                  <Image
+                    src={m.image}
+                    alt={m.name}
+                    fill
+                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
+                    className={imageClass}
+                    style={m.imageScale ? { transform: `scale(${m.imageScale})` } : undefined}
+                  />
                 )}
               </div>
               <div className="mt-4">

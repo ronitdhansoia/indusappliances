@@ -5,6 +5,8 @@ export type Model = {
   name: string;
   series?: string;
   image?: string;
+  /* Draws the image smaller or larger in its tile, so one photo can stand in for different sizes of the same product. */
+  imageScale?: number;
   sizes?: string;
   specs: string[];
   materials?: string;
@@ -69,9 +71,9 @@ export const divisionPages: DivisionPage[] = [
     range: [
       { name: "Instant", image: "/range/wh-instant-cut.webp", sizes: "3, 5.5 and 5.9 litres", specs: ["3 kW element", "0.65 bar rated pressure", "White, blue, black, grey and gold fronts"], materials: "SS304 tank · copper heating element · shockproof outer body" },
       { name: "Square", image: "/range/wh-square-cut.webp", sizes: "10, 15, 25 and 30 litres", specs: ["2 kW element", "0.8 bar rated pressure", "White, gold and black glass fronts"], materials: "Heavy-gauge tank · blue diamond enamel coating · G-Tech anode rod" },
-      { name: "Vertical metal", image: "/range/wh-vertical-metal-cut.webp", sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
+      { name: "Vertical metal", image: "/range/wh-vertical-metal-cut.webp", imageScale: 0.8, sizes: "6, 10, 15 and 25 litres", specs: ["2 kW element", "Brushed steel body", "Digital or dial control"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
       { name: "Vertical plastic", image: "/range/wh-vertical-plastic-cut.webp", sizes: "6, 10, 15, 25, 50, 80 and 100 litres", specs: ["2 kW element", "Lighter body, same tank", "Economical variant available"] },
-      { name: "Sumo", image: "/range/wh-vertical-metal-angle-cut.webp", sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
+      { name: "Sumo", image: "/range/wh-vertical-metal-cut.webp", imageScale: 1.15, sizes: "50, 70 and 100 litres", specs: ["2 kW element", "Vertical or horizontal mounting", "Up to 27 kg net"], materials: "Heavy-gauge enamelled tank · high-density foam insulation · anode rod" },
       { name: "Super slim horizontal", image: "/range/wh-horizontal-cut.webp", sizes: "10, 15, 25, 50, 80 and 100 litres", specs: ["2 kW element", "350 mm tall", "Fits above a door or under a shelf"] },
     ],
     table: {
@@ -166,7 +168,7 @@ export const divisionPages: DivisionPage[] = [
     range: [
       { name: "7.0 kg", image: "/range/wm-compact-cut.webp", specs: ["135 W aluminium-winding motor", "525 × 495 × 920 mm, 22 kg", "Knob programme selector, soft-closing lid"] },
       { name: "7.5 kg", image: "/range/wm-front-cut.webp", specs: ["150 W aluminium-winding motor", "550 × 520 × 920 mm, 22 kg", "Soft-closing or opaque classic lid"] },
-      { name: "8.0 kg", image: "/range/wm-angle-cut.webp", specs: ["165 W aluminium-winding motor", "550 × 520 × 980 mm, 24 kg", "Soft-closing or transparent lid"] },
+      { name: "8.0 kg", image: "/range/wm-8kg-cut.webp", specs: ["165 W aluminium-winding motor", "550 × 520 × 980 mm, 24 kg", "Soft-closing or transparent lid"] },
       { name: "Inside the drum", image: "/range/wm-open-cut.webp", specs: ["Diamond-pattern stainless drum", "Strong pulsator, fuzzy logic wash", "Ten wash programmes, self tub clean"] },
     ],
     table: {
