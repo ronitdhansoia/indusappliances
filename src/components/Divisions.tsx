@@ -68,7 +68,7 @@ export default function Divisions() {
 
           <div className="sticky top-40 self-start">
             <div className="relative aspect-square overflow-hidden rounded-3xl bg-soft shadow-sm">
-              {divisions.map((division, i) => (
+              {divisions.map((division, i) => division.image && (
                 <Image
                   key={division.id}
                   src={division.image}
@@ -82,6 +82,11 @@ export default function Divisions() {
                   }`}
                 />
               ))}
+              {!current.image && (
+                <p className="absolute inset-0 flex items-center justify-center p-10 text-center font-display text-[clamp(2rem,3.4vw,3.25rem)] font-semibold tracking-[-0.03em] text-ink">
+                  {current.name}
+                </p>
+              )}
               <div className="anno absolute left-5 top-5 rounded-full bg-white/85 px-3.5 py-2 text-ink shadow-sm backdrop-blur-md">
                 IND-{current.id} · {current.capacity} {current.capacityNote}
               </div>
@@ -101,18 +106,20 @@ export default function Divisions() {
                   href={division.href}
                   className="block overflow-hidden rounded-2xl border border-line bg-white transition-shadow duration-300 hover:shadow-lg hover:shadow-ink/5"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-soft">
-                    <Image
-                      src={division.image}
-                      alt={division.name}
-                      fill
-                      sizes="(min-width: 640px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                    <div className="anno absolute left-3 top-3 rounded-full bg-white/85 px-2.5 py-1.5 text-ink backdrop-blur-md">
-                      IND-{division.id}
+                  {division.image && (
+                    <div className="relative aspect-[4/3] overflow-hidden bg-soft">
+                      <Image
+                        src={division.image}
+                        alt={division.name}
+                        fill
+                        sizes="(min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 hover:scale-105"
+                      />
+                      <div className="anno absolute left-3 top-3 rounded-full bg-white/85 px-2.5 py-1.5 text-ink backdrop-blur-md">
+                        IND-{division.id}
+                      </div>
                     </div>
-                  </div>
+                  )}
                   <div className="p-5">
                     <h3 className="display-sub text-lg text-ink">
                       {division.name}

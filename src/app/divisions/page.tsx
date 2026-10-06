@@ -44,9 +44,13 @@ export default function DivisionsIndex() {
                       <span className="block font-display text-2xl font-semibold tracking-[-0.02em] text-ink">{d.capacity}</span>
                       <span className="text-sm text-muted">{d.capacityNote}</span>
                     </p>
-                    <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-soft sm:h-28 sm:w-28">
-                      <Image src={d.image} alt="" fill sizes="7rem" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                    </div>
+                    {d.image ? (
+                      <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-soft sm:h-28 sm:w-28">
+                        <Image src={d.image} alt="" fill sizes="7rem" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                      </div>
+                    ) : (
+                      <div className="h-20 w-20 shrink-0 sm:h-28 sm:w-28" aria-hidden />
+                    )}
                   </Link>
                 </li>
               ))}

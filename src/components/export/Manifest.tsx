@@ -36,9 +36,13 @@ export default function Manifest() {
               <li key={d.id}>
                 <Link href={d.href} className="xp-row group">
                   <span className="anno text-brand">{d.id}</span>
-                  <span className="xp-thumb">
-                    <Image src={d.image} alt="" fill sizes="4.5rem" className="object-cover" />
-                  </span>
+                  {d.image ? (
+                    <span className="xp-thumb">
+                      <Image src={d.image} alt="" fill sizes="4.5rem" className="object-cover" />
+                    </span>
+                  ) : (
+                    <span aria-hidden />
+                  )}
                   <span className="min-w-0">
                     <span className="display-sub block text-lg text-ink sm:text-xl">{d.name}</span>
                     <span className="xp-row-marks-inline">{d.marks.length ? d.marks.join(" · ") : "ISO 9001 system"}</span>

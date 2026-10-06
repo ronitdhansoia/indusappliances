@@ -16,7 +16,9 @@ export type Hero =
   | { kind: "video"; src: string; poster: string; alt: string }
   /* position: CSS object-position, for wide banners whose subject sits off-centre. */
   | { kind: "image"; src: string; alt: string; position?: string }
-  | { kind: "product"; src: string; alt: string };
+  | { kind: "product"; src: string; alt: string }
+  /* Text only, for a line with no photography yet. */
+  | { kind: "plain" };
 export type SpecTable = { title: string; note?: string; columns: string[]; rows: string[][] };
 export type Dispatch = { title: string; body: string; points: string[]; image: string; alt: string; caption: string };
 
@@ -199,20 +201,15 @@ export const divisionPages: DivisionPage[] = [
     name: "Air fryers",
     headline: "The newest line on the floor.",
     lead: "Air fryer assembly was commissioned in 2026. Manual-knob and digital-touch series from 4 to 8 litres, built to the same test regime as everything else that leaves Bahadurgarh.",
-    hero: { kind: "product", src: "/products/air-fryer.png", alt: "Digital touch air fryer" },
+    hero: { kind: "plain" },
     facts: [
-      "2,000,000 units a year, line commissioned in 2026",
+      "5,00,000 units a year, line commissioned in 2026",
       "4, 4.5, 5, 6, 7 and 8 litre baskets",
       "1,400 to 1,800 W, 80 to 200 °C, 60 minute timer",
       "Non-stick detachable basket, auto shut-off and cool-touch body",
     ],
     lineTitle: "Shared floor, same tests",
-    line: [
-      { src: "/plant/showroom-airfryers.jpg", caption: "Air fryers in the sample room" },
-      { src: "/plant/fabrication-line.jpg", caption: "Sub-assembly line" },
-      { src: "/plant/test-panel.jpg", caption: "Electrical safety test" },
-      { src: "/plant/shop-floor-2.jpg", caption: "Packing and dispatch" },
-    ],
+    line: [],
     rangeTitle: "Two series",
     range: [
       { name: "Manual control", sizes: "4, 4.5, 5, 6, 7 and 8 litres", specs: ["Two-knob timer and temperature", "1,400 to 1,800 W", "Cool-touch handle and body"] },

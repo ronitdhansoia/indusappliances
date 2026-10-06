@@ -43,7 +43,8 @@ export type Division = {
   capacity: string;
   capacityNote: string;
   blurb: string;
-  image: string;
+  /* Optional: a line with no photography shows text only wherever divisions are listed. */
+  image?: string;
   href: string;
 };
 
@@ -81,11 +82,10 @@ export const divisions: Division[] = [
   {
     id: "04",
     name: "Air Fryers",
-    capacity: "2,000,000",
+    capacity: "5,00,000",
     capacityNote: "units / year",
     blurb:
       "Our newest line: assembly commissioned in 2026, delivering energy-efficient air fryers for every kitchen.",
-    image: "/products/div-4.png",
     href: "/divisions/air-fryers",
   },
   {

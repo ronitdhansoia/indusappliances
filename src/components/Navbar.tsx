@@ -277,7 +277,7 @@ export default function Navbar() {
                 tabIndex={menu ? 0 : -1}
                 className="group relative block aspect-[4/3] overflow-hidden rounded-2xl bg-soft"
               >
-                {divisions.map((d, i) => (
+                {divisions.map((d, i) => d.image && (
                   <Image
                     key={d.id}
                     src={d.image}
