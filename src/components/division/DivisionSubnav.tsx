@@ -12,8 +12,8 @@ const items = [
 
 /* Spine for the long division pages: pinned under the site header, tracks
    the section under the reading line, and keeps the quote action in reach. */
-export default function DivisionSubnav({ name, hasSpecs }: { name: string; hasSpecs: boolean }) {
-  const links = items.filter((i) => hasSpecs || i.id !== "specs");
+export default function DivisionSubnav({ name, hasSpecs, hasLine }: { name: string; hasSpecs: boolean; hasLine: boolean }) {
+  const links = items.filter((i) => (hasSpecs || i.id !== "specs") && (hasLine || i.id !== "line"));
   const [active, setActive] = useState("overview");
 
   useEffect(() => {

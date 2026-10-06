@@ -16,7 +16,9 @@ export type Hero =
   | { kind: "video"; src: string; poster: string; alt: string }
   /* position: CSS object-position, for wide banners whose subject sits off-centre. */
   | { kind: "image"; src: string; alt: string; position?: string }
-  | { kind: "product"; src: string; alt: string };
+  | { kind: "product"; src: string; alt: string }
+  /* Text only, for a line with no photography yet. */
+  | { kind: "plain" };
 export type SpecTable = { title: string; note?: string; columns: string[]; rows: string[][] };
 export type Dispatch = { title: string; body: string; points: string[]; image: string; alt: string; caption: string };
 
@@ -53,7 +55,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Water heaters",
     headline: "The water heater line India's brands are built on.",
     lead: "Indus was the first ODM in India to localise stainless steel tank manufacturing, in 2004. Today the Bahadurgarh plant builds two million instant and storage water heaters a year, from the tank weld to the box.",
-    hero: { kind: "image", src: "/plant/water-heater-banner.webp", alt: "Indus storage and instant water heaters on a steel rack beside the assembly floor", position: "72% center" },
+    hero: { kind: "image", src: "/videos/line-water-heater-tanks-poster.jpg", alt: "Stainless steel water heater tanks with their element and pipe ports on the Bahadurgarh line" },
     facts: [
       "2,000,000 units a year, the largest instant water heater OEM in India",
       "Eight series from 3 to 100 litres, instant and storage",
@@ -62,12 +64,11 @@ export const divisionPages: DivisionPage[] = [
     ],
     lineTitle: "Sheet to tank to test",
     line: [
-      { src: "/line/wh-sheet-cutting.webp", caption: "Sheet cutting" },
-      { src: "/line/wh-press.webp", caption: "Tank shells on the hydraulic press" },
-      { src: "/line/wh-tank-line.webp", caption: "Tank fabrication line 1" },
-      { src: "/line/wh-powder-coating.webp", caption: "Powder coating" },
-      { src: "/line/wh-testing.webp", caption: "Pressure and leak testing" },
-      { src: "/line/wh-packing.webp", caption: "Packing" },
+      { src: "/images/plant/laser-cutting.jpg", caption: "Sheet laser cutting" },
+      { src: "/images/plant/press-brake.jpg", caption: "CNC bending on the press brakes" },
+      { src: "/plant/paint-booth.jpg", caption: "Powder coating" },
+      { src: "/images/plant/fabrication-line.jpg", caption: "Fabrication line 1" },
+      { src: "/plant/shop-floor.jpg", caption: "Dispatch aisle" },
     ],
     rangeTitle: "Eight series",
     rangeNote: "Every series runs 220 to 240 V, 50 to 60 Hz, adjustable from ambient to 75 °C, rated IPX4.",
@@ -168,12 +169,11 @@ export const divisionPages: DivisionPage[] = [
     ],
     lineTitle: "Down the line",
     line: [
-      { src: "/line/wm-marriage.webp", caption: "Cabinet and drum marriage" },
-      { src: "/line/wm-harness.webp", caption: "Harness and PCB fitting" },
-      { src: "/line/wm-waiting.webp", caption: "Waiting for test" },
-      { src: "/line/wm-safety-test.webp", caption: "Electrical safety test" },
-      { src: "/line/wm-hv-test.webp", caption: "High-voltage and earth test panel" },
-      { src: "/line/wm-finished.webp", caption: "Labelled and ready to pack" },
+      { src: "/plant/wm-line.jpg", caption: "Cabinet and drum marriage" },
+      { src: "/plant/wm-line-2.jpg", caption: "Harness and PCB fitting" },
+      { src: "/plant/wm-conveyor-2.jpg", caption: "Waiting for test" },
+      { src: "/plant/wm-test-panel.jpg", caption: "High-voltage and earth test panel" },
+      { src: "/plant/wm-conveyor.jpg", caption: "Labelled and ready to pack" },
     ],
     rangeCutout: true,
     rangeTitle: "Three capacities, two lids",
@@ -199,20 +199,15 @@ export const divisionPages: DivisionPage[] = [
     name: "Air fryers",
     headline: "The newest line on the floor.",
     lead: "Air fryer assembly was commissioned in 2026. Manual-knob and digital-touch series from 4 to 8 litres, built to the same test regime as everything else that leaves Bahadurgarh.",
-    hero: { kind: "product", src: "/products/air-fryer.png", alt: "Digital touch air fryer" },
+    hero: { kind: "plain" },
     facts: [
-      "2,000,000 units a year, line commissioned in 2026",
+      "500,000 units a year, line commissioned in 2026",
       "4, 4.5, 5, 6, 7 and 8 litre baskets",
       "1,400 to 1,800 W, 80 to 200 °C, 60 minute timer",
       "Non-stick detachable basket, auto shut-off and cool-touch body",
     ],
     lineTitle: "Shared floor, same tests",
-    line: [
-      { src: "/plant/showroom-airfryers.jpg", caption: "Air fryers in the sample room" },
-      { src: "/plant/fabrication-line.jpg", caption: "Sub-assembly line" },
-      { src: "/plant/test-panel.jpg", caption: "Electrical safety test" },
-      { src: "/plant/shop-floor-2.jpg", caption: "Packing and dispatch" },
-    ],
+    line: [],
     rangeTitle: "Two series",
     range: [
       { name: "Manual control", sizes: "4, 4.5, 5, 6, 7 and 8 litres", specs: ["Two-knob timer and temperature", "1,400 to 1,800 W", "Cool-touch handle and body"] },
@@ -340,7 +335,8 @@ export const divisionPages: DivisionPage[] = [
     name: "Heating elements",
     headline: "The element inside every Indus water heater.",
     lead: "Indus makes its own copper heating elements in Bahadurgarh, the part that turns two million water heaters a year into hot water. Made on site, they are matched to each tank, rated for Indian mains, and tested with the heater they go into.",
-    hero: { kind: "image", src: "/plant/test-panel.jpg", alt: "Electrical test panel on the water heater line at the Bahadurgarh plant" },
+    /* PLACEHOLDER: swap for a real photo of element manufacturing or testing (landscape, at least 2400 x 1000). */
+    hero: { kind: "image", src: "/images/water-heater-element-placeholder.jpg", alt: "" },
     facts: [
       "3,000,000 copper heating elements a year, made in-house since the first water heater line",
       "2 kW elements for storage heaters, 3 kW for instant",
@@ -398,9 +394,10 @@ export function divisionBySlug(slug: string) {
 }
 
 export const backwardIntegration = [
-  { step: "Sheet laser cutting", text: "High-precision cutting for accurate parts.", image: "/plant/laser-cutting.jpg" },
-  { step: "CNC bending", text: "Precision bending for consistent quality.", image: "/plant/press-brake.jpg" },
-  { step: "Power press", text: "High-speed punching for accurate component forming.", image: "/plant/press-brake-parts.jpg" },
-  { step: "CNC turret punching", text: "High-speed, accurate punching for productivity.", image: "/plant/laser-operator.jpg" },
-  { step: "Sub-assembly", text: "Integrated sub-assemblies for higher efficiency.", image: "/plant/fabrication-line.jpg" },
+  { step: "Sheet laser cutting", text: "High-precision cutting for accurate parts.", image: "/images/plant/laser-cutting.jpg" },
+  { step: "CNC bending", text: "Precision bending for consistent quality.", image: "/images/plant/press-brake.jpg" },
+  { step: "Power press", text: "High-speed punching for accurate component forming.", image: "/images/plant/press-brake-operator.jpg" },
+  /* PLACEHOLDER: needs a bright photo of the CNC turret punch press. */
+  { step: "CNC turret punching", text: "High-speed, accurate punching for productivity.", image: "/images/placeholders/cnc-turret-punching.jpg" },
+  { step: "Sub-assembly", text: "Integrated sub-assemblies for higher efficiency.", image: "/images/plant/fabrication-line.jpg" },
 ];
