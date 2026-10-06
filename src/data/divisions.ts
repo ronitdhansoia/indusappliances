@@ -173,7 +173,6 @@ export const divisionPages: DivisionPage[] = [
       { src: "/line/wm-marriage.webp", caption: "Cabinet and drum marriage" },
       { src: "/line/wm-harness.webp", caption: "Harness and PCB fitting" },
       { src: "/line/wm-waiting.webp", caption: "Waiting for test" },
-      { src: "/line/wm-safety-test.webp", caption: "Electrical safety test" },
       { src: "/line/wm-hv-test.webp", caption: "High-voltage and earth test panel" },
       { src: "/line/wm-finished.webp", caption: "Labelled and ready to pack" },
     ],
