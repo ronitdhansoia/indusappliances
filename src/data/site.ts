@@ -140,6 +140,12 @@ export const divisions: Division[] = [
   },
 ];
 
+/* The home page product list keeps its original air fryer photo and figure;
+   the divisions page, menu and air fryer page show the line without photos. */
+export const homeDivisions = divisions.map((d) =>
+  d.id === "04" ? { ...d, capacity: "2,000,000", image: "/products/div-4.png" } : d,
+) as (Division & { image: string })[];
+
 /* Products surfaced in the Business Divisions menu. Each links to its
    division's range section. */
 export const menuProducts = [
