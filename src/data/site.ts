@@ -55,7 +55,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "India's largest instant water heater OEM. SS304 tanks, copper heating elements, glass-lined storage models, BEE star rated and ISI marked.",
-    image: "/videos/line-water-heater-tanks-poster.jpg",
+    image: "/products/div-1.png",
     href: "/divisions/water-heaters",
   },
   {
@@ -65,7 +65,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "Nine chimney families from pyramid to filterless with auto-clean, up to 1,600 m³/h suction, built end-to-end under one roof.",
-    image: "/plant/showroom.jpg",
+    image: "/products/div-2.png",
     href: "/divisions/kitchen-hoods",
   },
   {
@@ -75,17 +75,17 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "Fully automatic 7 to 8 kg top-load machines with diamond stainless drums, engineered to the latest energy-efficiency standards.",
-    image: "/plant/wm-conveyor.jpg",
+    image: "/products/div-3.png",
     href: "/divisions/washing-machines",
   },
   {
     id: "04",
     name: "Air Fryers",
-    capacity: "500,000",
+    capacity: "2,000,000",
     capacityNote: "units / year",
     blurb:
       "Our newest line: assembly commissioned in 2026, delivering energy-efficient air fryers for every kitchen.",
-    image: "/plant/showroom-airfryers.jpg",
+    image: "/products/div-4.png",
     href: "/divisions/air-fryers",
   },
   {
@@ -95,7 +95,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "TPW, farrata and heavy-duty air circulators with double ball-bearing motors and 90° oscillation.",
-    image: "/videos/line-fan-motor-bench-poster.jpg",
+    image: "/products/fans.png",
     href: "/divisions/fans",
   },
   {
@@ -105,7 +105,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "#1 BLDC motor manufacturer, the quiet, efficient core inside our fans, hoods and coolers.",
-    image: "/plant/motor-final.jpg",
+    image: "/products/motors.png",
     href: "/divisions/motors",
   },
   {
@@ -115,7 +115,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "Desert, personal and commercial coolers from 45 to 150 litres, on mechanical and electronic platforms.",
-    image: "/videos/line-coolers-row-poster.jpg",
+    image: "/products/air-cooler.png",
     href: "/divisions/air-coolers",
   },
   {
@@ -125,7 +125,7 @@ export const divisions: Division[] = [
     capacityNote: "elements / year",
     blurb:
       "The copper heating elements inside every Indus water heater, made on our own line: 2 kW for storage models and 3 kW for instant, rated 220 to 240 V.",
-    image: "/images/client/water-heater-product.jpg",
+    image: "/plant/test-panel.jpg",
     href: "/divisions/heating-elements",
   },
   {
@@ -135,7 +135,7 @@ export const divisions: Division[] = [
     capacityNote: "in-house tooling",
     blurb:
       "Small-to-medium moulds for automotive, white goods, lighting and electrical, with complex 3-D profiles cut from our own tool room.",
-    image: "/plant/cnc-haas.jpg",
+    image: "/products/tools.png",
     href: "/divisions/tools-and-moulds",
   },
 ];
@@ -323,6 +323,6 @@ export const productionLine = [
   { name: "Kitchen Hood", capacity: "400,000 / yr", image: "/products/hood-curve.png" },
   { name: "Air Cooler", capacity: "600,000 / yr", image: "/products/personal-cooler.png" },
   { name: "Pedestal Fan", capacity: "1,000,000 / yr", image: "/products/pedestal-fan.png" },
-  { name: "Air Fryer", capacity: "500,000 / yr", image: "/products/air-fryer.png" },
+  { name: "Air Fryer", capacity: "2,000,000 / yr", image: "/products/air-fryer.png" },
   { name: "BLDC Motor", capacity: "200,000 / yr", image: "/products/motor.png" },
 ];

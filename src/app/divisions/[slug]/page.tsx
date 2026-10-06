@@ -42,7 +42,7 @@ export default async function DivisionPageRoute({ params }: Props) {
         <div id="overview" className="under-header-offset">
           <DivisionHero page={page} capacity={s.capacity} capacityNote={s.capacityNote} />
         </div>
-        <DivisionSubnav name={page.name} hasSpecs={Boolean(page.table)} hasLine={page.line.length > 0} />
+        <DivisionSubnav name={page.name} hasSpecs={Boolean(page.table)} />
         <section className="bg-white">
           <ul className="shell grid grid-cols-1 gap-x-8 gap-y-4 border-b border-line py-8 text-[15px] leading-snug text-body sm:grid-cols-2 lg:grid-cols-4">
             {page.facts.map((f) => (
@@ -58,11 +58,9 @@ export default async function DivisionPageRoute({ params }: Props) {
             <SpecTable table={page.table} />
           </div>
         )}
-        {page.line.length > 0 && (
-          <div id="line" className="subnav-offset">
-            <LineStrip title={page.lineTitle} photos={page.line} intro="Photographed on the Bahadurgarh floor." />
-          </div>
-        )}
+        <div id="line" className="subnav-offset">
+          <LineStrip title={page.lineTitle} photos={page.line} intro="Photographed on the Bahadurgarh floor." />
+        </div>
         {page.dispatch && (
           <div id="dispatch" className="subnav-offset">
             <DispatchSection dispatch={page.dispatch} />

@@ -3,24 +3,6 @@ import type { DivisionPage } from "@/data/divisions";
 
 export default function DivisionHero({ page, capacity, capacityNote }: { page: DivisionPage; capacity: string; capacityNote: string }) {
   const { hero } = page;
-  if (hero.kind === "plain") {
-    return (
-      <section className="bg-soft">
-        <div className="shell pb-14 pt-14 lg:pb-20 lg:pt-20">
-          <p className="text-sm text-muted">{page.name}</p>
-          <h1 className="mt-3 max-w-[18ch] font-display text-[clamp(2.5rem,5vw,4.75rem)] font-semibold leading-[1] tracking-[-0.04em] text-ink">
-            {page.headline}
-          </h1>
-          <div className="mt-7 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-xl text-lg leading-relaxed text-body">{page.lead}</p>
-            <p className="shrink-0 font-display text-3xl font-semibold tracking-[-0.03em] text-ink">
-              {capacity} <span className="text-lg font-medium text-muted">{capacityNote}</span>
-            </p>
-          </div>
-        </div>
-      </section>
-    );
-  }
   if (hero.kind === "product") {
     return (
       <section className="bg-soft">

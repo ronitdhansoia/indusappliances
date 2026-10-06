@@ -22,18 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://indusgroup.co.in"),
   title: "Indus Appliances | OEM & ODM Appliance Manufacturer, India",
   description:
     "India's trusted OEM & ODM partner since 2004. Water heaters, kitchen hoods, washing machines, air coolers, fans, motors and air fryers. 50 million products supplied to 50+ global brands.",
-  openGraph: {
-    siteName: "Indus Appliances",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
 };
 
 export default function RootLayout({

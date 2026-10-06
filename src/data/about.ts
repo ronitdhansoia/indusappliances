@@ -122,7 +122,7 @@ export const founder = {
   letter: [
     "When I started Indus Appliances, my vision was simple: to build products that genuinely make a difference in people's lives. As a mechanical engineer by training and an entrepreneur at heart, I have always believed that innovation must go hand in hand with reliability and customer satisfaction.",
     "From day one, my goal has been to design products that not only meet real-world needs but also last longer and perform better, all while keeping them affordable. This approach has guided every decision we have made, from research and development to the way we engage with our customers.",
-    "Back in 2004, I was humbled to receive recognition from the Honourable Prime Minister of India for our work in bringing practical, creative solutions to market. But the real reward has been watching our company grow, from a one-person venture to a trusted brand with a strong team of over 1,000 people.",
+    "Back in 2004, I was humbled to receive recognition from the Honourable Prime Minister of India for our work in bringing practical, creative solutions to market. But the real reward has been watching our company grow, from a one-person venture to a trusted brand with a strong team of over 500 people.",
   ],
 };
 

@@ -343,8 +343,8 @@ export const people = {
       caption: "Washing machine line",
     },
     {
-      src: "/images/client/office.jpg",
-      alt: "The Indus office floor, with rows of desks and glass-walled cabins",
+      src: "/plant/office-wide-2.jpg",
+      alt: "The plant office, with the team at their desks",
       caption: "Plant office",
     },
   ],
