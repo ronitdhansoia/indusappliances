@@ -82,6 +82,19 @@ export default function Divisions() {
                   }`}
                 />
               ))}
+              {/* Product name over the photo, on a soft tint so it reads on light and dark shots. */}
+              <div className="pointer-events-none absolute inset-0 bg-ink/30" aria-hidden />
+              {divisions.map((division, i) => (
+                <p
+                  key={division.id}
+                  aria-hidden
+                  className={`pointer-events-none absolute inset-0 flex items-center justify-center p-10 text-center font-display text-[clamp(2rem,3.4vw,3.25rem)] font-semibold tracking-[-0.03em] text-white [text-shadow:0_2px_24px_rgba(14,22,32,0.45)] transition-all duration-500 ease-out ${
+                    active === i ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+                  }`}
+                >
+                  {division.name}
+                </p>
+              ))}
               <div className="anno absolute left-5 top-5 rounded-full bg-white/85 px-3.5 py-2 text-ink shadow-sm backdrop-blur-md">
                 IND-{current.id} · {current.capacity} {current.capacityNote}
               </div>
