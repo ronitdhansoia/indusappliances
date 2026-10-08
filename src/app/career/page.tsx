@@ -27,8 +27,7 @@ export default function CareerPage() {
         <ScaleGrid />
         <People />
         <CareerPath />
-        <WorkingAtIndus />
-        <CareersBoard roles={roles} />
+        <CareersBoard roles={roles} between={<WorkingAtIndus />} />
         <OpenApplication />
         <Closing />
       </main>

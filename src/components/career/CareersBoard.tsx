@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import { apply as applyCopy, departmentOrder, positions, type Department, type Role } from "@/data/careers";
 import { contact } from "@/data/site";
 import InView from "./InView";
@@ -14,7 +14,8 @@ import { pad } from "./format";
    piece of state: the role a visitor is applying for. Sending composes an
    email in the visitor's own mail app; the CV is attached there, since
    nothing here runs a server. */
-export default function CareersBoard({ roles }: { roles: Role[] }) {
+/* `between` renders after the open positions and before the apply form. */
+export default function CareersBoard({ roles, between }: { roles: Role[]; between?: ReactNode }) {
   const [filter, setFilter] = useState<Department | "All">("All");
   const [openSlug, setOpenSlug] = useState<string | null>(null);
   const [applying, setApplying] = useState("");
@@ -103,7 +104,7 @@ export default function CareersBoard({ roles }: { roles: Role[] }) {
       <section id="roles" className="cr-section under-header-offset border-t border-line" aria-labelledby="cr-roles-title">
         <div className="shell">
           <InView>
-            <SheetHeader n="06" title="Open positions" note={positions.note} />
+            <SheetHeader n="05" title="Open positions" note={positions.note} />
             <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end">
               <h2 id="cr-roles-title" className="cr-display text-[clamp(2.25rem,7.2vw,7rem)] text-ink">
                 <Lines lines={positions.lines} />
@@ -170,6 +171,8 @@ export default function CareersBoard({ roles }: { roles: Role[] }) {
           </ol>
         </div>
       </section>
+
+      {between}
 
       <RoleDrawer
         role={openRole}

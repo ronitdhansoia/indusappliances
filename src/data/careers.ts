@@ -392,25 +392,11 @@ export const path = {
 export const working = {
   items: [
     {
-      lines: ["Real responsibility.", "From day one."],
-      body: "Every position at Indus is impactful and plays a central role in our projects and in the growth of the company. You are encouraged to exercise autonomy in your decision-making.",
-      image: "/plant/hood-final-2.jpg",
-      alt: "An operator fitting a kitchen hood body on the assembly line",
-      caption: "Kitchen hood line",
-    },
-    {
       lines: ["Learn while", "building."],
       body: "Skills are built on real products and real production, and Indus funds work-related courses and training to accelerate your professional development.",
       image: "/plant/skilling-centre.jpg",
       alt: "Guests seated at a long table under a banner for the inauguration of the Industrial Skilling Centre at the plant",
       caption: "Industrial Skilling Centre inauguration",
-    },
-    {
-      lines: ["Work with people", "who know their craft."],
-      body: "Smart, talented co-workers, all growing and enjoying working together. Quality here is owned by the people on the line, not only by inspection.",
-      image: "/plant/office-meeting.jpg",
-      alt: "Two colleagues in a meeting at a desk in the plant office",
-      caption: "A meeting in the plant office",
     },
     {
       lines: ["See your work", "become real."],

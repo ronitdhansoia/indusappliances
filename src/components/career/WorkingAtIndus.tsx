@@ -6,14 +6,14 @@ import SheetHeader from "./SheetHeader";
 import Lines from "./Lines";
 import { pad } from "./format";
 
-/* Four spreads, statement on one side and a photograph on the other,
+/* Spreads, statement on one side and a photograph on the other,
    alternating like the pages of a magazine. */
 export default function WorkingAtIndus() {
   return (
     <section id="working" className="cr-section under-header-offset border-t border-line" aria-labelledby="cr-working-title">
       <div className="shell">
         <InView>
-          <SheetHeader n="05" title="Working here" note="For qualified candidates, we offer" />
+          <SheetHeader n="06" title="Working here" note="For qualified candidates, we offer" />
           <h2 id="cr-working-title" className="cr-display mt-10 text-[clamp(2.25rem,7.2vw,7rem)] text-ink">
             <Lines lines={["Real products.", "Real responsibility."]} />
           </h2>
