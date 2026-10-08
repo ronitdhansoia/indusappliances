@@ -24,7 +24,7 @@ export default function People() {
                   src={p.src}
                   alt={p.alt}
                   fill
-                  sizes={i === 0 ? "(min-width: 768px) 58vw, 100vw" : "(min-width: 768px) 40vw, 100vw"}
+                  sizes="(min-width: 768px) 50vw, 100vw"
                 />
               </div>
               <figcaption className="cr-mono">{p.caption}</figcaption>

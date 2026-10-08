@@ -338,13 +338,8 @@ export const people = {
       caption: "The team, in front of the plant",
     },
     {
-      src: "/plant/wm-line-2.jpg",
-      alt: "An operator on the washing machine assembly line, with finished units beside her",
-      caption: "Washing machine line",
-    },
-    {
-      src: "/plant/office-wide-2.jpg",
-      alt: "The plant office, with the team at their desks",
+      src: "/plant/office-floor.jpg",
+      alt: "The Indus office floor, with the team at rows of desks and glass-walled cabins along one side",
       caption: "Plant office",
     },
   ],

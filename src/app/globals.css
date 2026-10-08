@@ -1110,3 +1110,11 @@ p {
     transition-delay: 0s;
   }
 }
+
+/* Discourage saving images: no drag-out, no long-press save menu on phones. */
+img,
+video {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}

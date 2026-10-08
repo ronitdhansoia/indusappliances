@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Mona_Sans, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import ImageGuard from "@/components/ImageGuard";
 
 const monaSans = Mona_Sans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body
         className={`${monaSans.variable} ${geist.variable} ${geistMono.variable}`}
       >
+        <ImageGuard />
         {children}
       </body>
     </html>
