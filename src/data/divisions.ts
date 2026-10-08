@@ -66,7 +66,6 @@ export const divisionPages: DivisionPage[] = [
     line: [
       { src: "/line/wh-sheet-cutting.webp", caption: "Sheet cutting" },
       { src: "/line/wh-press.webp", caption: "Tank shells on the hydraulic press" },
-      { src: "/line/wh-tank-line.webp", caption: "Tank fabrication line 1" },
       { src: "/line/wh-powder-coating.webp", caption: "Powder coating" },
       { src: "/line/wh-testing.webp", caption: "Pressure and leak testing" },
       { src: "/line/wh-packing.webp", caption: "Packing" },
@@ -336,7 +335,7 @@ export const divisionPages: DivisionPage[] = [
     name: "Heating elements",
     headline: "The element inside every Indus water heater.",
     lead: "Indus makes its own copper heating elements in Bahadurgarh, the part that turns two million water heaters a year into hot water. Made on site, they are matched to each tank, rated for Indian mains, and tested with the heater they go into.",
-    hero: { kind: "image", src: "/plant/test-panel.jpg", alt: "Electrical test panel on the water heater line at the Bahadurgarh plant" },
+    hero: { kind: "image", src: "/line/el-finished.webp", alt: "Finished copper heating elements laid out on a rack at the Bahadurgarh plant" },
     facts: [
       "3,000,000 copper heating elements a year, made in-house since the first water heater line",
       "2 kW elements for storage heaters, 3 kW for instant",
