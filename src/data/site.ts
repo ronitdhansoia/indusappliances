@@ -125,7 +125,7 @@ export const divisions: Division[] = [
     capacityNote: "elements / year",
     blurb:
       "The copper heating elements inside every Indus water heater, made on our own line: 2 kW for storage models and 3 kW for instant, rated 220 to 240 V.",
-    image: "/plant/test-panel.jpg",
+    image: "/line/el-finished.webp",
     href: "/divisions/heating-elements",
   },
   {
