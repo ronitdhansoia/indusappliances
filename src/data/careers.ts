@@ -428,7 +428,7 @@ export const openApplication = {
 };
 
 export const closing = {
-  lines: ["Made in Bahadurgarh.", "Built by people who care how things are made."],
+  lines: ["Made in India.", "Built by people who care how things are made."],
   image: {
     src: "/plant/aerial.jpg",
     alt: "The Indus Appliances plant in Bahadurgarh from the air, beside the Delhi Rohtak Road with fields around it",

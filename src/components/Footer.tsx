@@ -127,7 +127,7 @@ export default function Footer() {
 
         <div className="anno mt-14 flex flex-col gap-2 border-t border-line-dark pt-6 text-steel sm:flex-row sm:justify-between">
           <p>© 2026 Indus Appliances Private Limited. All rights reserved.</p>
-          <p>28.69°N 76.93°E · Made in Bahadurgarh, India</p>
+          <p>28.69°N 76.93°E · Made in India</p>
         </div>
       </div>
     </footer>

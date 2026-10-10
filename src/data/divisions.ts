@@ -64,7 +64,7 @@ export const divisionPages: DivisionPage[] = [
     ],
     lineTitle: "Sheet to tank to test",
     line: [
-      { src: "/line/wh-sheet-cutting.webp", caption: "Sheet cutting" },
+      { src: "/plant/sheet-metal-shop.jpg", caption: "Sheet laser cutting" },
       { src: "/line/wh-press.webp", caption: "Tank shells on the hydraulic press" },
       { src: "/line/wh-powder-coating.webp", caption: "Powder coating" },
       { src: "/line/wh-testing.webp", caption: "Pressure and leak testing" },
@@ -169,6 +169,7 @@ export const divisionPages: DivisionPage[] = [
     ],
     lineTitle: "Down the line",
     line: [
+      { src: "/plant/sheet-metal-shop.jpg", caption: "Sheet laser cutting" },
       { src: "/line/wm-marriage.webp", caption: "Cabinet and drum marriage" },
       { src: "/line/wm-harness.webp", caption: "Harness and PCB fitting" },
       { src: "/line/wm-waiting.webp", caption: "Waiting for test" },
@@ -393,9 +394,8 @@ export function divisionBySlug(slug: string) {
 }
 
 export const backwardIntegration = [
-  { step: "Sheet laser cutting", text: "High-precision cutting for accurate parts.", image: "/plant/laser-cutting.jpg" },
+  { step: "Sheet laser cutting", text: "High-precision cutting for accurate parts.", image: "/plant/sheet-metal-shop.jpg" },
   { step: "CNC bending", text: "Precision bending for consistent quality.", image: "/plant/press-brake.jpg" },
   { step: "Power press", text: "High-speed punching for accurate component forming.", image: "/plant/press-brake-parts.jpg" },
   { step: "CNC turret punching", text: "High-speed, accurate punching for productivity.", image: "/plant/laser-operator.jpg" },
-  { step: "Sub-assembly", text: "Integrated sub-assemblies for higher efficiency.", image: "/plant/fabrication-line.jpg" },
 ];

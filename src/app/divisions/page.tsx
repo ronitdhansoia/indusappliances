@@ -19,7 +19,7 @@ export default function DivisionsIndex() {
       <Navbar />
       <main>
         <section className="relative isolate flex min-h-[min(72svh,46rem)] flex-col justify-end overflow-hidden bg-night text-white">
-          <Image src="/plant/aerial.jpg" alt="Aerial view of the Indus Appliances plant beside the Delhi Rohtak Road in Bahadurgarh" fill priority sizes="100vw" className="-z-20 object-cover" />
+          <Image src="/plant/campus-aerial-blocks.jpg" alt="Aerial view of the Indus Appliances production blocks in Bahadurgarh, with the main factory buildings either side of the internal road" fill priority sizes="100vw" className="-z-20 object-cover" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/55 to-night/10" aria-hidden />
           <div className="shell pb-10 pt-40 sm:pb-14">
             <h1 className="max-w-[16ch] font-display text-[clamp(2.75rem,6vw,6rem)] font-semibold leading-[0.96] tracking-[-0.04em]">Nine lines. One roof.</h1>
@@ -64,12 +64,12 @@ export default function DivisionsIndex() {
               <div>
                 <h2 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink">Why one roof matters</h2>
                 <p className="mt-5 max-w-md text-lg leading-relaxed text-body">
-                  Indus makes its own sheet-metal parts, its own motors and its own moulds. Five steps that used to be bought in now happen a few metres from the assembly lines, which is why lead times, quality and cost stay in our hands.
+                  Indus makes its own sheet-metal parts, its own motors and its own moulds. Four steps that used to be bought in now happen a few metres from the assembly lines, which is why lead times, quality and cost stay in our hands.
                 </p>
               </div>
               <ol className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
                 {backwardIntegration.map((b, i) => (
-                  <li key={b.step} className={i === 4 ? "sm:col-span-2" : ""}>
+                  <li key={b.step}>
                     <div className="relative aspect-[3/2] overflow-hidden bg-white">
                       <Image src={b.image} alt={b.step} fill sizes="(min-width: 1024px) 30vw, 90vw" className="object-cover" />
                     </div>
