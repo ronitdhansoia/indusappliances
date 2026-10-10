@@ -86,6 +86,7 @@ export const divisions: Division[] = [
     capacityNote: "units / year",
     blurb:
       "Our newest line: assembly commissioned in 2026, delivering energy-efficient air fryers for every kitchen.",
+    image: "/products/div-4.png",
     href: "/divisions/air-fryers",
   },
   {
