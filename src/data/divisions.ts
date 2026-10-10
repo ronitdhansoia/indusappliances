@@ -396,6 +396,6 @@ export function divisionBySlug(slug: string) {
 export const backwardIntegration = [
   { step: "Sheet laser cutting", text: "High-precision cutting for accurate parts.", image: "/plant/sheet-metal-shop.jpg" },
   { step: "CNC bending", text: "Precision bending for consistent quality.", image: "/plant/press-brake.jpg" },
-  { step: "Power press", text: "High-speed punching for accurate component forming.", image: "/plant/press-brake-parts.jpg" },
-  { step: "CNC turret punching", text: "High-speed, accurate punching for productivity.", image: "/plant/laser-operator.jpg" },
+  { step: "Injection moulding", text: "Moulds from our own tool room, run on in-house injection machines.", image: "/line/tools-mould-trial.webp" },
+  { step: "Power press", text: "High-speed punching for accurate component forming.", image: "/line/tools-power-press.webp" },
 ];
